@@ -133,34 +133,54 @@
 
         footer { text-align: center; padding: 60px; background: #000; color: #94a3b8; font-size: 0.85rem; }
         @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
+
+/* Makes the logo slightly dim or glow when hovered */
+.logo-link {
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+/* Ensures the whole page scrolls smoothly when clicking ANY link */
+html {
+    scroll-behavior: smooth;
+}
+        
     </style>
 </head>
 <body data-theme="dark">
 
-    <nav>
+   <nav>
+    <a href="#" class="logo-link" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
         <div class="logo-container">
             <svg width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="20" y="20" width="60" height="60" rx="10" stroke="#0ea5e9" stroke-width="8"/>
                 <circle cx="50" cy="50" r="12" fill="#0ea5e9"/>
                 <path d="M50 10V20M50 80V90M10 50H20M80 50H90" stroke="#0ea5e9" stroke-width="6" stroke-linecap="round"/>
             </svg>
-            <div class="logo-text">NEXUS<span>CORE</span></div>
-        </div>
-        <div class="nav-right">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#guide">Process</a></li>
-                <li><a href="#services">Services</a></li>
-            </ul>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" checked />
-                    <div class="slider"></div>
-                </label>
+            <div class="logo-text" style="color: white; font-weight: 800; font-size: 1.4rem; letter-spacing: -1px;">
+                NEXUS<span style="color: var(--accent);">CORE</span>
             </div>
         </div>
-    </nav>
+    </a>
 
+    <div class="nav-right">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#guide">Process</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Support Portal</a></li>
+        </ul>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" checked />
+                <div class="slider"></div>
+            </label>
+        </div>
+    </div>
+</nav>
     <header class="hero">
     <div class="hero-content">
         <h1>Expert Remote IT HelpDesk</h1>
