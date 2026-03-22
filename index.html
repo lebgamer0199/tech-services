@@ -394,17 +394,15 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
     const urgency = document.getElementById('urgency').value;
     const message = document.getElementById('message').value;
     
-    // Generate Ticket ID
+    // Generates a random Ticket ID for a professional look (e.g., #NC-842)
     const ticketId = Math.floor(Math.random() * 900) + 100;
 
-    // We use %E2%9C%85 for the Green Checkmark ✅
-    // We use %0A for a New Line
-    // We use %23 for the # symbol
+    // Formatted Professional Ticket using Standard Emojis
     const text = 
-        `*NEXUS CORE IT - REMOTE TICKET*%0A` +
+        `*NEXUS CORE IT - REMOTE TICKET* %0A` +
         `--------------------------------%0A` +
         `*ID:* %23NC-${ticketId}%0A` +
-        `*STATUS:* %E2%9C%85 ACTIVE%0A` +
+        `*STATUS:* ACTIVE%0A` +
         `*CLIENT:* ${encodeURIComponent(name)}%0A` +
         `*PRIORITY:* ${encodeURIComponent(urgency)}%0A%0A` +
         `*TECHNICAL BRIEF:*%0A${encodeURIComponent(message)}%0A` +
