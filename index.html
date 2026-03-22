@@ -48,7 +48,7 @@
         nav ul li a { color: #fff; text-decoration: none; padding: 0 15px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
 
         .hero {
-            height: 65vh;
+            height: 60vh;
             background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.7)), 
                         url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1470');
             background-size: cover; background-position: center;
@@ -68,26 +68,29 @@
         .badge-box { background: rgba(14, 165, 233, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid var(--accent); }
 
         /* TUTORIAL GUIDE */
-        #guide { background: var(--tutorial-bg); max-width: 100%; border-radius: 0 0 50px 50px; padding: 100px 20px; }
+        #guide { background: var(--tutorial-bg); max-width: 100%; padding: 100px 20px; border-radius: 0 0 50px 50px; }
         .steps-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
         .step { flex: 1; min-width: 280px; padding: 40px; background: var(--section-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--card-border); }
         .step-num { width: 45px; height: 45px; background: var(--accent); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; transform: rotate(45deg); }
         .step-num span { transform: rotate(-45deg); }
 
-        /* SERVICE CARDS */
+        /* SERVICE CARDS - FIXED FOR INDIVIDUAL CLICK */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: var(--section-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--card-border); text-align: left; cursor: pointer; }
+        .card { background: var(--section-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--card-border); text-align: left; cursor: pointer; transition: 0.3s; }
         .card:hover { border-color: var(--accent); }
-        .card-img { width: 100%; height: 210px; object-fit: cover; transition: 0.3s; }
+        .card-img { width: 100%; height: 210px; object-fit: cover; }
         .card-body { padding: 25px; }
-        .card-body h3 { color: var(--accent); display: flex; justify-content: space-between; align-items: center; }
-        .toggle-icon { background: rgba(14, 165, 233, 0.1); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s; }
+        .card-body h3 { color: var(--accent); display: flex; justify-content: space-between; align-items: center; font-weight: 800; }
+        .toggle-icon { background: rgba(14, 165, 233, 0.1); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s; color: var(--accent); font-weight: bold; }
+        
         .card.active .toggle-icon { transform: rotate(45deg); color: #ef4444; background: rgba(239, 68, 68, 0.1); }
-        .card-details { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.5s ease; }
-        .card.active .card-details { max-height: 500px; opacity: 1; padding-top: 20px; margin-top: 15px; border-top: 1px solid var(--card-border); }
+        
+        .card-details { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.5s cubic-bezier(0, 1, 0, 1); }
+        .card.active .card-details { max-height: 1000px; opacity: 1; padding-top: 20px; margin-top: 15px; border-top: 1px solid var(--card-border); transition: all 0.5s ease-in-out; }
+        
         .card-list { list-style: none; }
-        .card-list li { margin-bottom: 12px; font-size: 0.9rem; display: grid; grid-template-columns: 25px 1fr; color: var(--text-muted); }
-        .card-list li i { color: var(--accent); font-style: normal; font-weight: 800; }
+        .card-list li { margin-bottom: 12px; font-size: 0.9rem; display: grid; grid-template-columns: 25px 1fr; color: var(--text-muted); line-height: 1.4; }
+        .card-list li i { color: var(--accent); font-style: normal; font-weight: 900; }
 
         /* THEME SWITCH */
         .theme-switch-wrapper { display: flex; align-items: center; }
@@ -117,7 +120,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#guide">Process</a></li>
-                <li><a href="#services">Infrastructure</a></li>
+                <li><a href="#services">Services</a></li>
             </ul>
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
@@ -131,97 +134,89 @@
     <header class="hero">
         <div class="hero-content">
             <h1>Scalable IT Infrastructure</h1>
-            <p>Reliable Technical Support and Digital Foundation for Industrial & Enterprise Operations.</p>
-            <a href="#contact" class="btn btn-primary">Request Support</a>
+            <p>Certified Support & Digital Foundation for Industrial Operations.</p>
+            <a href="#contact" class="btn btn-primary">Start Ticket</a>
         </div>
     </header>
 
     <section id="about">
         <div class="about-grid">
             <div class="about-text">
-                <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">Technical Excellence</h2>
-                <p>Nexus Core IT is an <strong>Infrastructure Provider</strong> specialized in maintaining the technical backbones of modern organizations. Led by a specialist with a **B.S. in Information Technology**.</p>
+                <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">Our Mission</h2>
+                <p>Nexus Core IT is a specialized **Infrastructure Provider** focused on high-availability systems. We build the frameworks that allow businesses to scale without downtime.</p>
             </div>
             <div class="badge-box">
-                <h4 style="margin-bottom: 10px; font-weight: 800;">Verified</h4>
-                <p style="font-size: 0.85rem;">• B.S. IT Degree<br>• Infrastructure Arch<br>• Advanced Tech Support</p>
+                <h4 style="margin-bottom: 10px; font-weight: 800;">Credentials</h4>
+                <p style="font-size: 0.85rem;">• B.S. IT Specialist<br>• Infrastructure Arch<br>• Advanced Support</p>
             </div>
         </div>
     </section>
 
     <section id="guide">
-        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">The Nexus Protocol</h2>
-        <p style="color: var(--text-muted);">Three steps to complete system resolution.</p>
+        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">Remote Support Guide</h2>
         <div class="steps-container">
-            <div class="step">
-                <div class="step-num"><span>01</span></div>
-                <h3>Intake</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Brief your infrastructure issue via our secure WhatsApp portal.</p>
-            </div>
-            <div class="step">
-                <div class="step-num"><span>02</span></div>
-                <h3>Access</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Activate UltraViewer to establish an encrypted remote session.</p>
-            </div>
-            <div class="step">
-                <div class="step-num"><span>03</span></div>
-                <h3>Repair</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Our engineers perform deep-system repair and optimization live.</p>
-            </div>
+            <div class="step"><div class="step-num"><span>01</span></div><h3>Contact</h3><p style="font-size:0.85rem; color:var(--text-muted)">Send us your technical brief via WhatsApp.</p></div>
+            <div class="step"><div class="step-num"><span>02</span></div><h3>Access</h3><p style="font-size:0.85rem; color:var(--text-muted)">Connect via secure UltraViewer/TeamViewer.</p></div>
+            <div class="step"><div class="step-num"><span>03</span></div><h3>Resolve</h3><p style="font-size:0.85rem; color:var(--text-muted)">Real-time system repair and optimization.</p></div>
         </div>
     </section>
 
     <section id="services">
-        <h2 style="font-size: 2.2rem; margin-bottom: 40px;">Infrastructure Solutions</h2>
+        <h2 style="font-size: 2.2rem; margin-bottom: 40px;">Specialized Infrastructure Services</h2>
         <div class="service-grid">
-            <div class="card" onclick="toggleCard(this)">
+            
+            <div class="card" onclick="toggleCard(event, this)">
                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=600" class="card-img" alt="Infrastructure">
                 <div class="card-body">
                     <h3>🏗️ Infrastructure <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span>Network architecture and secure VPN tunnels.</span></li>
-                            <li><i>→</i> <span>Active Directory and Server deployment.</span></li>
+                            <li><i>→</i> <span><strong>Network:</strong> LAN/WAN Design, VPN Tunnels, and Firewall rules.</span></li>
+                            <li><i>→</i> <span><strong>Servers:</strong> Active Directory, DNS, and DHCP enterprise setup.</span></li>
+                            <li><i>→</i> <span><strong>Storage:</strong> Professional NAS & Cloud redundancy configurations.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="card" onclick="toggleCard(this)">
+            <div class="card" onclick="toggleCard(event, this)">
                 <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=600" class="card-img" alt="Support">
                 <div class="card-body">
                     <h3>🛠️ Tech Support <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span>Instant troubleshooting via encrypted UltraViewer.</span></li>
-                            <li><i>→</i> <span>System hardening and OS optimization.</span></li>
+                            <li><i>→</i> <span><strong>Remote:</strong> 24/7 Troubleshooting via encrypted remote desktop tools.</span></li>
+                            <li><i>→</i> <span><strong>OS:</strong> Deployment of Windows/Linux with security hardening.</span></li>
+                            <li><i>→</i> <span><strong>Diagnostics:</strong> Advanced hardware and firmware error resolution.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="card" onclick="toggleCard(this)">
+            <div class="card" onclick="toggleCard(event, this)">
                 <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600" class="card-img" alt="Data">
                 <div class="card-body">
                     <h3>🔒 Data Security <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span>Critical data restoration from failed units.</span></li>
-                            <li><i>→</i> <span>Firewall and endpoint security management.</span></li>
+                            <li><i>→</i> <span><strong>Recovery:</strong> Salvaging data from failed HDD, SSD, and RAW partitions.</span></li>
+                            <li><i>→</i> <span><strong>Cybersecurity:</strong> Implementation of EDR and Anti-Ransomware protocols.</span></li>
+                            <li><i>→</i> <span><strong>Backups:</strong> Automated off-site disaster recovery scheduling.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
     <section id="contact">
-        <div style="max-width: 600px; margin: 0 auto; background: var(--section-bg); padding: 50px; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: var(--shadow);">
-            <h2>Initialize Support</h2>
+        <div style="max-width: 600px; margin: 0 auto; background: var(--section-bg); padding: 50px; border-radius: 12px; border: 1px solid var(--card-border);">
+            <h2>Support Portal</h2>
             <form id="whatsappForm">
-                <input type="text" id="name" placeholder="Name / Organization" required style="width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);">
+                <input type="text" id="name" placeholder="Name / Company" required style="width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);">
                 <textarea id="message" rows="4" placeholder="Brief technical summary..." required style="width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);"></textarea>
-                <button type="submit" class="btn btn-whatsapp">Send to Operations</button>
+                <button type="submit" class="btn btn-whatsapp">Initialize Connection</button>
             </form>
         </div>
     </section>
@@ -243,17 +238,27 @@
             localStorage.setItem('theme', theme);
         });
 
-        function toggleCard(cardElement) {
+        // FIXED LOGIC: One card at a time. No overlapping.
+        function toggleCard(event, cardElement) {
+            event.stopPropagation(); // Prevents multiple event triggers
+            
             const isActive = cardElement.classList.contains('active');
-            // This ensures only ONE card stays open at a time
-            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-            if (!isActive) cardElement.classList.add('active');
+            
+            // 1. Remove active status from all other cards
+            document.querySelectorAll('.card').forEach(c => {
+                c.classList.remove('active');
+            });
+            
+            // 2. If the clicked card wasn't active, make it active
+            if (!isActive) {
+                cardElement.classList.add('active');
+            }
         }
 
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const phoneNumber = "YOUR_NUMBER"; // Replace with your number
-            const text = `*NEXUS CORE IT*%0A*Client:* ${document.getElementById('name').value}%0A*Brief:* ${document.getElementById('message').value}`;
+            const phoneNumber = "YOUR_NUMBER_HERE"; // Put your number here
+            const text = `*NEXUS CORE IT TICKET*%0A*Client:* ${document.getElementById('name').value}%0A*Issue:* ${document.getElementById('message').value}`;
             window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
         });
     </script>
