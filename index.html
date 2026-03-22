@@ -48,7 +48,7 @@
         nav ul li a { color: #fff; text-decoration: none; padding: 0 15px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
 
         .hero {
-            height: 60vh;
+            height: 65vh;
             background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.7)), 
                         url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1470');
             background-size: cover; background-position: center;
@@ -56,9 +56,13 @@
         }
         .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 15px; }
 
-        .btn { padding: 14px 32px; font-size: 0.95rem; font-weight: 700; cursor: pointer; border-radius: 6px; transition: 0.3s; text-decoration: none; display: inline-block; border: none; text-transform: uppercase; }
+        .btn { padding: 14px 32px; font-size: 0.85rem; font-weight: 700; cursor: pointer; border-radius: 6px; transition: 0.3s; text-decoration: none; display: inline-block; border: none; text-transform: uppercase; }
         .btn-primary { background: var(--accent); color: white; }
+        .btn-outline { border: 2px solid white; color: white; }
+        .btn-outline:hover { background: white; color: black; }
         .btn-whatsapp { background: #22c55e; color: white; width: 100%; margin-top: 20px; }
+        .btn-small { padding: 10px 20px; font-size: 0.75rem; margin-top: 15px; border: 1px solid var(--accent); color: var(--accent); background: transparent; }
+        .btn-small:hover { background: var(--accent); color: white; }
 
         section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
 
@@ -74,22 +78,21 @@
         .step-num { width: 45px; height: 45px; background: var(--accent); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; transform: rotate(45deg); }
         .step-num span { transform: rotate(-45deg); }
 
-        /* SERVICE CARDS - FIXED FOR INDIVIDUAL CLICK */
+        /* SERVICE CARDS */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
         .card { background: var(--section-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--card-border); text-align: left; cursor: pointer; transition: 0.3s; }
-        .card:hover { border-color: var(--accent); }
         .card-img { width: 100%; height: 210px; object-fit: cover; }
         .card-body { padding: 25px; }
         .card-body h3 { color: var(--accent); display: flex; justify-content: space-between; align-items: center; font-weight: 800; }
-        .toggle-icon { background: rgba(14, 165, 233, 0.1); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s; color: var(--accent); font-weight: bold; }
+        .toggle-icon { background: rgba(14, 165, 233, 0.1); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s; color: var(--accent); }
         
         .card.active .toggle-icon { transform: rotate(45deg); color: #ef4444; background: rgba(239, 68, 68, 0.1); }
         
         .card-details { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.5s cubic-bezier(0, 1, 0, 1); }
-        .card.active .card-details { max-height: 1000px; opacity: 1; padding-top: 20px; margin-top: 15px; border-top: 1px solid var(--card-border); transition: all 0.5s ease-in-out; }
+        .card.active .card-details { max-height: 1000px; opacity: 1; padding-top: 20px; margin-top: 15px; border-top: 1px solid var(--card-border); }
         
         .card-list { list-style: none; }
-        .card-list li { margin-bottom: 12px; font-size: 0.9rem; display: grid; grid-template-columns: 25px 1fr; color: var(--text-muted); line-height: 1.4; }
+        .card-list li { margin-bottom: 12px; font-size: 0.9rem; display: grid; grid-template-columns: 25px 1fr; color: var(--text-muted); }
         .card-list li i { color: var(--accent); font-style: normal; font-weight: 900; }
 
         /* THEME SWITCH */
@@ -135,7 +138,10 @@
         <div class="hero-content">
             <h1>Scalable IT Infrastructure</h1>
             <p>Certified Support & Digital Foundation for Industrial Operations.</p>
-            <a href="#contact" class="btn btn-primary">Start Ticket</a>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn btn-primary">Start Ticket</a>
+                <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-outline">Download UltraViewer</a>
+            </div>
         </div>
     </header>
 
@@ -162,7 +168,7 @@
     </section>
 
     <section id="services">
-        <h2 style="font-size: 2.2rem; margin-bottom: 40px;">Specialized Infrastructure Services</h2>
+        <h2 style="font-size: 2.2rem; margin-bottom: 40px;">Specialized Services</h2>
         <div class="service-grid">
             
             <div class="card" onclick="toggleCard(event, this)">
@@ -171,9 +177,9 @@
                     <h3>🏗️ Infrastructure <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Network:</strong> LAN/WAN Design, VPN Tunnels, and Firewall rules.</span></li>
-                            <li><i>→</i> <span><strong>Servers:</strong> Active Directory, DNS, and DHCP enterprise setup.</span></li>
-                            <li><i>→</i> <span><strong>Storage:</strong> Professional NAS & Cloud redundancy configurations.</span></li>
+                            <li><i>→</i> <span><strong>Network:</strong> LAN/WAN Design and VPN Tunnels.</span></li>
+                            <li><i>→</i> <span><strong>Servers:</strong> Active Directory and DHCP setup.</span></li>
+                            <li><i>→</i> <span><strong>Storage:</strong> Enterprise NAS redundancy.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -185,10 +191,11 @@
                     <h3>🛠️ Tech Support <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Remote:</strong> 24/7 Troubleshooting via encrypted remote desktop tools.</span></li>
-                            <li><i>→</i> <span><strong>OS:</strong> Deployment of Windows/Linux with security hardening.</span></li>
-                            <li><i>→</i> <span><strong>Diagnostics:</strong> Advanced hardware and firmware error resolution.</span></li>
+                            <li><i>→</i> <span><strong>Remote:</strong> 24/7 Troubleshooting live.</span></li>
+                            <li><i>→</i> <span><strong>OS:</strong> Deployment with security hardening.</span></li>
+                            <li><i>→</i> <span><strong>Diagnostics:</strong> Firmware error resolution.</span></li>
                         </ul>
+                        <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-small">Download UltraViewer</a>
                     </div>
                 </div>
             </div>
@@ -199,9 +206,9 @@
                     <h3>🔒 Data Security <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Recovery:</strong> Salvaging data from failed HDD, SSD, and RAW partitions.</span></li>
-                            <li><i>→</i> <span><strong>Cybersecurity:</strong> Implementation of EDR and Anti-Ransomware protocols.</span></li>
-                            <li><i>→</i> <span><strong>Backups:</strong> Automated off-site disaster recovery scheduling.</span></li>
+                            <li><i>→</i> <span><strong>Recovery:</strong> Salvaging data from failed drives.</span></li>
+                            <li><i>→</i> <span><strong>Cybersecurity:</strong> Implementation of EDR protocols.</span></li>
+                            <li><i>→</i> <span><strong>Backups:</strong> Automated disaster recovery.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -222,7 +229,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 NEXUS CORE IT SOLUTIONS. Engineering Standards Applied.</p>
+        <p>&copy; 2026 NEXUS CORE IT SOLUTIONS.</p>
         <p style="margin-top: 10px; opacity: 0.4;">Led by B.S. IT Specialist | Infrastructure & Support</p>
     </footer>
 
@@ -238,26 +245,16 @@
             localStorage.setItem('theme', theme);
         });
 
-        // FIXED LOGIC: One card at a time. No overlapping.
         function toggleCard(event, cardElement) {
-            event.stopPropagation(); // Prevents multiple event triggers
-            
+            event.stopPropagation();
             const isActive = cardElement.classList.contains('active');
-            
-            // 1. Remove active status from all other cards
-            document.querySelectorAll('.card').forEach(c => {
-                c.classList.remove('active');
-            });
-            
-            // 2. If the clicked card wasn't active, make it active
-            if (!isActive) {
-                cardElement.classList.add('active');
-            }
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            if (!isActive) cardElement.classList.add('active');
         }
 
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const phoneNumber = "YOUR_NUMBER_HERE"; // Put your number here
+            const phoneNumber = "YOUR_NUMBER"; // Replace this
             const text = `*NEXUS CORE IT TICKET*%0A*Client:* ${document.getElementById('name').value}%0A*Issue:* ${document.getElementById('message').value}`;
             window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
         });
