@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFix | Data Recovery & PC Repair</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS STYLING */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { line-height: 1.6; color: #333; background: #f4f7f6; scroll-behavior: smooth; }
+        
+        nav { 
+            display: flex; justify-content: space-around; align-items: center; 
+            background: #1a252f; color: #fff; padding: 1rem 0; 
+            position: fixed; width: 100%; top: 0; z-index: 1000; 
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .logo span { color: #3498db; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li a { color: #fff; text-decoration: none; padding: 0 15px; font-size: 0.9rem; }
+
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&q=80&w=1470');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center;
+            color: white; text-align: center; padding-top: 60px;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        
+        #services { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .service-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; margin-top: 40px;
+        }
+        .card { 
+            background: white; padding: 30px; border-radius: 8px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid #3498db;
+        }
+
+        #contact { padding: 80px 20px; background: #e9ecef; text-align: center; }
+        .contact-box { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; }
+        input, textarea, select { 
+            width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; 
+        }
+        .btn { 
+            width: 100%; background: #25d366; color: white; border: none; 
+            padding: 15px; font-size: 1rem; font-weight: bold; cursor: pointer; border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #128c7e; }
+
+        footer { text-align: center; padding: 40px; background: #1a252f; color: white; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Tech<span>Fix</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div>
+            <h1>Fast Tech Support & Data Recovery</h1>
+            <p>Certified technicians ready to fix your hardware and rescue your files.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 style="text-align:center">Our IT Expertise</h2>
+        <div class="service-grid">
+            <div class="card">
+                <h3>💾 Data Restoration</h3>
+                <p>Advanced recovery for deleted files, formatted drives, and physical drive failures.</p>
+            </div>
+            <div class="card">
+                <h3>💻 Laptop & PC Repair</h3>
+                <p>Hardware upgrades, screen replacements, and cooling system maintenance.</p>
+            </div>
+            <div class="card">
+                <h3>🛡️ Managed Backups</h3>
+                <p>Secure off-site and cloud backup solutions for small businesses and home offices.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box">
+            <h2>Start a Repair Ticket</h2>
+            <p style="margin-bottom:20px; font-size:0.9rem;">Submit the form to chat with us on WhatsApp</p>
+            
+            <form id="whatsappForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <select id="service">
+                    <option value="General Inquiry">Select a Service</option>
+                    <option value="Data Recovery">Data Recovery</option>
+                    <option value="Laptop/PC Repair">Laptop/PC Repair</option>
+                    <option value="Backup Setup">Backup Setup</option>
+                </select>
+                <textarea id="message" rows="4" placeholder="Describe the issue (e.g., 'My laptop won't turn on')" required></textarea>
+                <button type="submit" class="btn">Chat on WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 TechFix Solutions | Expert IT Services</p>
+    </footer>
+
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // --- CONFIGURATION ---
+            const phoneNumber = "70118085"; // REPLACE WITH YOUR PHONE NUMBER (include country code, no + or 00)
+            // ---------------------
+
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            // Construct the WhatsApp message
+            const text = `Hello TechFix! %0A%0A` +
+                         `*Name:* ${name}%0A` +
+                         `*Service:* ${service}%0A` +
+                         `*Issue:* ${message}`;
+
+            // Open WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+        });
+    </script>
+
+</body>
+</html>
