@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bassel Tech | Professional IT & Business Solutions</title>
+    <title>Bassel Tech | Professional IT Engineering</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M50 5L89 27.5V72.5L50 95L11 72.5V27.5L50 5Z%22 fill=%22%233498db%22/><text y=%2270%22 font-size=%2250%22 fill=%22white%22 x=%2222%22 font-family=%22Arial%22 font-weight=%22bold%22>BT</text></svg>">
+    
     <style>
         /* THEMES & VARIABLES */
         :root {
@@ -17,6 +19,7 @@
             --accent: #3498db;
             --shadow: 0 10px 30px rgba(0,0,0,0.05);
             --tutorial-bg: #f8fafc;
+            --logo-glow: none;
         }
 
         [data-theme="dark"] {
@@ -28,29 +31,32 @@
             --card-border: #334155;
             --shadow: 0 10px 40px rgba(0,0,0,0.3);
             --tutorial-bg: #0f172a;
+            --logo-glow: 0 0 15px rgba(52, 152, 219, 0.6);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; transition: background 0.3s, color 0.3s, border-color 0.3s; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
         body { line-height: 1.6; color: var(--text-color); background: var(--bg-color); scroll-behavior: smooth; }
         
-        /* Navigation */
+        /* Navigation & Logo */
         nav { 
             display: flex; justify-content: space-around; align-items: center; 
-            background: var(--nav-bg); color: #fff; padding: 1rem 0; 
+            background: var(--nav-bg); color: #fff; padding: 0.8rem 0; 
             position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; }
-        .logo span { color: var(--accent); }
-        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .logo-container { display: flex; align-items: center; gap: 12px; filter: var(--logo-glow); }
+        .logo-text { font-weight: 800; font-size: 1.4rem; letter-spacing: -0.5px; color: white; }
+        .logo-text span { color: var(--accent); }
+
+        .nav-right { display: flex; align-items: center; gap: 25px; }
         nav ul { display: flex; list-style: none; }
         nav ul li a { color: #fff; text-decoration: none; padding: 0 15px; font-weight: 600; font-size: 0.85rem; }
 
-        /* Dark Mode Toggle */
+        /* Dark Mode Switch */
         .theme-switch-wrapper { display: flex; align-items: center; }
         .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
         .theme-switch input { display:none; }
-        .slider { background-color: #475569; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 34px; }
-        .slider:before { background-color: white; bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute; transition: .4s; width: 16px; border-radius: 50%; }
+        .slider { background-color: #475569; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; border-radius: 34px; }
+        .slider:before { background-color: white; bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute; width: 16px; border-radius: 50%; }
         input:checked + .slider { background-color: var(--accent); }
         input:checked + .slider:before { transform: translateX(26px); }
 
@@ -62,34 +68,34 @@
             background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 20px; margin-top: 60px;
         }
-        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 10px; }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 15px; }
 
         /* Buttons */
         .btn { padding: 14px 28px; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 8px; transition: 0.3s; text-decoration: none; display: inline-block; border: none; }
         .btn-primary { background: var(--accent); color: white; }
         .btn-ultra { background: #f39c12; color: white; }
         .btn-whatsapp { background: #25d366; color: white; width: 100%; margin-top: 20px; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 
         section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
 
-        /* About Section */
-        #about { background: var(--section-bg); border-radius: 24px; margin: 40px auto; padding: 50px; shadow: var(--shadow); text-align: left; box-shadow: var(--shadow); }
+        /* About & Credentials */
+        #about { background: var(--section-bg); border-radius: 24px; margin: 40px auto; padding: 50px; text-align: left; box-shadow: var(--shadow); }
         .about-container { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
         .about-text { flex: 2; min-width: 320px; }
         .about-badge { flex: 1; min-width: 250px; background: rgba(52, 152, 219, 0.1); padding: 30px; border-radius: 12px; border-left: 5px solid var(--accent); }
 
-        /* TUTORIAL SECTION */
+        /* Tutorial */
         #how-it-works { background: var(--tutorial-bg); max-width: 100%; padding: 80px 20px; border-radius: 40px; margin: 20px 0; }
         .steps-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
         .step { flex: 1; min-width: 260px; padding: 30px; background: var(--section-bg); border-radius: 20px; box-shadow: var(--shadow); }
         .step-num { width: 45px; height: 45px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; }
 
-        /* SERVICES SECTION */
+        /* Realigned Sliding Cards */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; align-items: start; }
         .card { 
             background: var(--section-bg); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); 
-            border: 1px solid var(--card-border); text-align: left; cursor: pointer; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--card-border); text-align: left; cursor: pointer;
         }
         .card:hover { border-color: var(--accent); transform: translateY(-8px); }
         .card-img { width: 100%; height: 210px; object-fit: cover; }
@@ -98,7 +104,7 @@
         .toggle-icon { background: rgba(52, 152, 219, 0.1); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s; }
         .card.active .toggle-icon { transform: rotate(45deg); background: rgba(231, 76, 60, 0.1); color: #e74c3c; }
 
-        .card-details { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.3s; opacity: 0; }
+        .card-details { max-height: 0; overflow: hidden; opacity: 0; }
         .card.active .card-details { max-height: 600px; opacity: 1; padding-top: 20px; margin-top: 15px; border-top: 1px solid var(--card-border); }
         .card-list { list-style: none; }
         .card-list li { margin-bottom: 12px; font-size: 0.92rem; display: grid; grid-template-columns: 25px 1fr; }
@@ -106,7 +112,7 @@
 
         /* Contact Form */
         .contact-box { max-width: 650px; margin: 0 auto; background: var(--section-bg); padding: 50px; border-radius: 24px; box-shadow: var(--shadow); }
-        input, textarea, select { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 10px; background: var(--bg-color); color: var(--text-color); }
+        input, textarea, select { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 10px; background: var(--bg-color); color: var(--text-color); outline: none; }
 
         footer { text-align: center; padding: 50px; background: var(--nav-bg); color: #fff; font-size: 0.85rem; }
 
@@ -116,10 +122,16 @@
 <body data-theme="light">
 
     <nav>
-        <div class="logo">Bassel<span>Tech</span></div>
+        <div class="logo-container">
+            <svg width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 5L89 27.5V72.5L50 95L11 72.5V27.5L50 5Z" stroke="#3498db" stroke-width="8" stroke-linejoin="round"/>
+                <path d="M35 30V70H50C58 70 62 65 62 60C62 55 58 50 50 50H35M50 50C56 50 60 46 60 40C60 34 56 30 50 30H35" stroke="white" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <div class="logo-text">Bassel<span>Tech</span></div>
+        </div>
         <div class="nav-right">
             <ul>
-                <li><a href="#about">Expertise</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#how-it-works">Guide</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -135,11 +147,11 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Engineering IT Excellence</h1>
-            <p>Certified Systems Maintenance & High-Value Data Recovery</p>
-            <div style="display: flex; gap: 15px; justify-content: center;">
-                <a href="#contact" class="btn btn-primary">Start Ticket</a>
-                <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-ultra">Get Remote Tool</a>
+            <h1>Engineering IT Solutions</h1>
+            <p>Certified Systems Architecture & Data Recovery Specialists</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn btn-primary">Start Service Ticket</a>
+                <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-ultra">Remote Support</a>
             </div>
         </div>
     </header>
@@ -148,39 +160,43 @@
         <div class="about-container">
             <div class="about-text">
                 <h2>The Professional Standard</h2>
-                <p>Led by a <strong>Bachelor of Science in Information Technology</strong>, Bassel Tech Solutions provides technical infrastructure support for industrial and corporate clients. We bridge the gap between academic engineering and real-world results.</p>
+                <p>Bassel Tech is led by a <strong>Bachelor of Science in Information Technology</strong>. We provide enterprise-level technical infrastructure support for industrial facilities and private clients, combining academic engineering with field-tested results.</p>
             </div>
             <div class="about-badge">
-                <span style="font-weight: 800; color: var(--accent);">📜 Verified Expertise</span>
-                <p style="font-size: 0.9rem; margin-top: 10px;">• B.S. in Information Technology<br>• Professional IT Institute Certificate</p>
+                <span style="font-weight: 800; color: var(--accent);">📜 Verified Credentials</span>
+                <p style="font-size: 0.9rem; margin-top: 10px; line-height: 1.8;">
+                    • B.S. in Information Technology<br>
+                    • Professional IT Institute Certificate<br>
+                    <small style="color:var(--text-muted)">Security & Network Engineering Focused</small>
+                </p>
             </div>
         </div>
     </section>
 
     <section id="how-it-works">
         <h2>Remote Support Process</h2>
-        <p style="color: var(--text-muted); margin-bottom: 30px;">Get expert assistance in 3 simple steps.</p>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Professional assistance delivered globally in 3 steps.</p>
         <div class="steps-container">
             <div class="step">
                 <div class="step-num">1</div>
                 <h3>Contact</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Message us on WhatsApp with your technical issue.</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Message us on WhatsApp to detail your technical issue.</p>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
                 <h3>Secure Access</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Open UltraViewer and share your ID & Password.</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Launch UltraViewer and securely share your ID & Pass.</p>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
-                <h3>The Fix</h3>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Watch as we resolve the problem remotely in real-time.</p>
+                <h3>Optimization</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">We repair and optimize your system in real-time.</p>
             </div>
         </div>
     </section>
 
     <section id="services">
-        <h2 style="margin-bottom: 40px;">Specialized Services</h2>
+        <h2 style="margin-bottom: 40px;">Expert Capabilities</h2>
         <div class="service-grid">
             <div class="card" onclick="toggleCard(this)">
                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=600" class="card-img" alt="Data Recovery">
@@ -188,9 +204,9 @@
                     <h3>💾 Data Recovery <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Recovery:</strong> Rescuing data from failed HDD/SSD/USB.</span></li>
-                            <li><i>→</i> <span><strong>Forensics:</strong> Restoration of deleted documents & media.</span></li>
-                            <li><i>→</i> <span><strong>Partitions:</strong> Fixing corrupted or unreadable volumes.</span></li>
+                            <li><i>→</i> <span><strong>Restoration:</strong> Rescuing data from crashed HDD/SSD/USB.</span></li>
+                            <li><i>→</i> <span><strong>Forensics:</strong> Retrieval of deleted critical documents & media.</span></li>
+                            <li><i>→</i> <span><strong>Filesystems:</strong> Fixing raw, corrupted, or encrypted volumes.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -199,12 +215,12 @@
             <div class="card" onclick="toggleCard(this)">
                 <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" class="card-img" alt="Hardware Repair">
                 <div class="card-body">
-                    <h3>💻 Engineering <span class="toggle-icon">+</span></h3>
+                    <h3>💻 Systems Engineering <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Upgrades:</strong> SSD & RAM expansion for speed.</span></li>
-                            <li><i>→</i> <span><strong>Repair:</strong> Component-level motherboard diagnostics.</span></li>
-                            <li><i>→</i> <span><strong>Security:</strong> Secure OS configuration & optimization.</span></li>
+                            <li><i>→</i> <span><strong>Optimization:</strong> SSD & RAM expansion for maximum efficiency.</span></li>
+                            <li><i>→</i> <span><strong>Diagnostics:</strong> Motherboard and component-level repair.</span></li>
+                            <li><i>→</i> <span><strong>OS Deployment:</strong> Professional Windows/Linux installations.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -213,14 +229,14 @@
             <div class="card" onclick="toggleCard(this)">
                 <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=600" class="card-img" alt="Business Support">
                 <div class="card-body">
-                    <h3>🌐 Remote Support <span class="toggle-icon">+</span></h3>
+                    <h3>🌐 Business Support <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Network:</strong> Router & Firewall security setup.</span></li>
-                            <li><i>→</i> <span><strong>Servers:</strong> User permissions & management.</span></li>
-                            <li><i>→</i> <span><strong>Support:</strong> Remote printer & driver configuration.</span></li>
+                            <li><i>→</i> <span><strong>Networking:</strong> Advanced Firewall & Router security setups.</span></li>
+                            <li><i>→</i> <span><span><strong>Servers:</strong> Active Directory & user permission management.</span></li>
+                            <li><i>→</i> <span><strong>Remote:</strong> Troubleshooting and driver config via UltraViewer.</span></li>
                         </ul>
-                        <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-ultra" style="width: 100%; margin-top: 15px; font-size: 0.8rem;">Get UltraViewer</a>
+                        <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-ultra" style="width: 100%; margin-top: 15px; font-size: 0.8rem;">Get Remote Tool</a>
                     </div>
                 </div>
             </div>
@@ -231,13 +247,13 @@
         <div class="contact-box">
             <h2>Instant Consultation</h2>
             <form id="whatsappForm">
-                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="text" id="name" placeholder="Name or Organization" required>
                 <select id="service">
-                    <option value="Data Recovery">Data Recovery</option>
-                    <option value="Hardware Repair">Systems Engineering</option>
-                    <option value="Remote Business Support">Remote Business Support</option>
+                    <option value="Critical Data Recovery">Data Recovery</option>
+                    <option value="Systems Engineering">Systems Engineering</option>
+                    <option value="Business Support">Remote Support</option>
                 </select>
-                <textarea id="message" rows="4" placeholder="Briefly describe the issue..." required></textarea>
+                <textarea id="message" rows="4" placeholder="Describe your technical issue..." required></textarea>
                 <button type="submit" class="btn btn-whatsapp">Send to WhatsApp</button>
             </form>
         </div>
@@ -245,6 +261,7 @@
 
     <footer>
         <p>&copy; 2026 Bassel Tech Solutions. Expert IT Engineering.</p>
+        <p style="opacity: 0.5; font-size: 0.75rem; margin-top: 10px;">Security. Integrity. Results.</p>
     </footer>
 
     <script>
@@ -271,7 +288,7 @@
         // WHATSAPP
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const phoneNumber = "YOUR_NUMBER_HERE"; // REPLACE THIS
+            const phoneNumber = "YOUR_NUMBER_HERE"; // REPLACE WITH YOUR NUMBER
             const name = document.getElementById('name').value;
             const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
