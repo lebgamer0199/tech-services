@@ -118,7 +118,19 @@
 }       
         .card-details { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.5s cubic-bezier(0, 1, 0, 1); }
         .card.active .card-details { max-height: 1200px; opacity: 1; padding-top: 20px; margin-top: 15px; border-top: 1px solid var(--card-border); }
-        
+        /* This makes the card "Pop" and Glow when clicked */
+.card.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.25); /* The Blue Glow */
+    transform: translateY(-5px); /* Slightly lifts the card up */
+    background: var(--section-bg);
+}
+
+/* Optional: Make the Icon inside also glow when active */
+.card.active h3 svg {
+    filter: drop-shadow(0 0 8px var(--accent));
+    color: var(--accent);
+}
         .card-list { list-style: none; }
         .card-list li { margin-bottom: 12px; font-size: 0.9rem; display: grid; grid-template-columns: 25px 1fr; color: var(--text-muted); line-height: 1.4; }
         .card-list li i { color: var(--accent); font-style: normal; font-weight: 900; }
@@ -392,17 +404,22 @@ html {
     });
 
     // Individual Card Toggle Logic (Fixed)
-    function toggleCard(event, cardElement) {
-        event.stopPropagation();
-        const isActive = cardElement.classList.contains('active');
-        // Close all other open cards
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-        // If the clicked card wasn't active, open it
-        if (!isActive) {
-            cardElement.classList.add('active');
-        }
+   function toggleCard(event, cardElement) {
+    // Prevents the click from bubbling up
+    event.stopPropagation();
+    
+    const isActive = cardElement.classList.contains('active');
+    
+    // 1. Remove active class and glow from ALL cards
+    document.querySelectorAll('.card').forEach(c => {
+        c.classList.remove('active');
+    });
+    
+    // 2. If the clicked card wasn't already glowing, make it glow
+    if (!isActive) {
+        cardElement.classList.add('active');
     }
-
+}
    // Professional WhatsApp Ticket Submission
 document.getElementById('whatsappForm').addEventListener('submit', function(e) {
     e.preventDefault();
