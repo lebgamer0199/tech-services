@@ -383,30 +383,34 @@
         }
     }
 
-    // Professional WhatsApp Ticket Submission
-    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // --- CONFIGURE YOUR NUMBER HERE ---
-        const phoneNumber = "70118085"; // Replace with your number (include country code)
-        
-        const name = document.getElementById('name').value;
-        const urgency = document.getElementById('urgency').value;
-        const message = document.getElementById('message').value;
-        
-        // Formatted Professional Ticket
-        const text = 
-            `*NEW REMOTE SUPPORT TICKET*%0A` +
-            `--------------------------%0A` +
-            `*STATUS:* 🟢 ACTIVE%0A` +
-            `*CLIENT:* ${encodeURIComponent(name)}%0A` +
-            `*URGENCY:* ${encodeURIComponent(urgency)}%0A%0A` +
-            `*TECHNICAL BRIEF:*%0A${encodeURIComponent(message)}%0A` +
-            `--------------------------%0A` +
-            `_Sent via Nexus Core IT Portal_`;
+   // Professional WhatsApp Ticket Submission
+document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // --- CONFIGURE YOUR NUMBER HERE ---
+    const phoneNumber = "70118085"; // Enter your full number here
+    
+    const name = document.getElementById('name').value;
+    const urgency = document.getElementById('urgency').value;
+    const message = document.getElementById('message').value;
+    
+    // Generates a random Ticket ID for a professional look (e.g., #NC-842)
+    const ticketId = Math.floor(Math.random() * 900) + 100;
 
-        window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
-    });
+    // Formatted Professional Ticket using Standard Emojis
+    const text = 
+        `*NEXUS CORE IT - REMOTE TICKET* %0A` +
+        `--------------------------------%0A` +
+        `*ID:* %23NC-${ticketId}%0A` +
+        `*STATUS:* ✅ ACTIVE%0A` +
+        `*CLIENT:* ${encodeURIComponent(name)}%0A` +
+        `*PRIORITY:* ${encodeURIComponent(urgency)}%0A%0A` +
+        `*TECHNICAL BRIEF:*%0A${encodeURIComponent(message)}%0A` +
+        `--------------------------------%0A` +
+        `_Transmission via Support Portal_`;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+});
 </script>
 </body>
 </html>
