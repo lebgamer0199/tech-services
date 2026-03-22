@@ -50,7 +50,7 @@
         .hero {
             height: 65vh;
             background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.7)), 
-                        url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1470');
+                        url('IntroPIC.jpg');
             background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 20px; margin-top: 60px;
         }
@@ -206,7 +206,7 @@
         <div class="service-grid">
             
             <div class="card" onclick="toggleCard(event, this)">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=600" class="card-img" alt="Infrastructure">
+                <img src="CCTV&Infrastructure.jpg" class="card-img" alt="Infrastructure">
                 <div class="card-body">
                     <h3>🏗️ Infrastructure & CCTV <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
@@ -220,7 +220,7 @@
             </div>
 
             <div class="card" onclick="toggleCard(event, this)">
-                <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=600" class="card-img" alt="Support">
+                <img src="IT-support-helpdesk.jpg" class="card-img" alt="Support">
                 <div class="card-body">
                     <h3>🛠️ HelpDesk Support <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
@@ -235,7 +235,7 @@
             </div>
 
             <div class="card" onclick="toggleCard(event, this)">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600" class="card-img" alt="Data">
+                <img src="Security-manintenance.jpg" class="card-img" alt="Data">
                 <div class="card-body">
                     <h3>🔒 Security & Maintenance <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
@@ -289,7 +289,7 @@
 
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const phoneNumber = "YOUR_NUMBER"; // ENTER YOUR NUMBER HERE
+            const phoneNumber = "70118085"; // ENTER YOUR NUMBER HERE
             const text = `*NEXUS CORE IT TICKET*%0A*Client:* ${document.getElementById('name').value}%0A*Issue:* ${document.getElementById('message').value}`;
             window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
         });
