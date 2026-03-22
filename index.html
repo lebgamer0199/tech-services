@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus Core IT | Infrastructure & Technical Support</title>
+    <title>Nexus Core IT | Remote Infrastructure & HelpDesk</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M50 5L89 27.5V72.5L50 95L11 72.5V27.5L50 5Z%22 fill=%22%230ea5e9%22/><text y=%2270%22 font-size=%2245%22 fill=%22white%22 x=%2220%22 font-family=%22Arial%22 font-weight=%22bold%22>NC</text></svg>">
     
@@ -61,24 +61,21 @@
         .btn-outline { border: 2px solid white; color: white; }
         .btn-outline:hover { background: white; color: black; }
         .btn-whatsapp { background: #22c55e; color: white; width: 100%; margin-top: 20px; }
-        .btn-small { padding: 10px 20px; font-size: 0.75rem; margin-top: 15px; border: 1px solid var(--accent); color: var(--accent); background: transparent; }
+        .btn-small { padding: 10px 20px; font-size: 0.75rem; margin-top: 15px; border: 1px solid var(--accent); color: var(--accent); background: transparent; display: block; text-align: center; }
         .btn-small:hover { background: var(--accent); color: white; }
 
         section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
 
-        /* ABOUT SECTION */
         #about { background: var(--section-bg); border-radius: 20px; margin: 40px auto; padding: 60px; text-align: left; box-shadow: var(--shadow); border: 1px solid var(--card-border); }
         .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; align-items: center; }
         .badge-box { background: rgba(14, 165, 233, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid var(--accent); }
 
-        /* TUTORIAL GUIDE */
         #guide { background: var(--tutorial-bg); max-width: 100%; padding: 100px 20px; border-radius: 0 0 50px 50px; }
         .steps-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
         .step { flex: 1; min-width: 280px; padding: 40px; background: var(--section-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--card-border); }
         .step-num { width: 45px; height: 45px; background: var(--accent); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; transform: rotate(45deg); }
         .step-num span { transform: rotate(-45deg); }
 
-        /* SERVICE CARDS */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
         .card { background: var(--section-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--card-border); text-align: left; cursor: pointer; transition: 0.3s; }
         .card-img { width: 100%; height: 210px; object-fit: cover; }
@@ -89,13 +86,12 @@
         .card.active .toggle-icon { transform: rotate(45deg); color: #ef4444; background: rgba(239, 68, 68, 0.1); }
         
         .card-details { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.5s cubic-bezier(0, 1, 0, 1); }
-        .card.active .card-details { max-height: 1000px; opacity: 1; padding-top: 20px; margin-top: 15px; border-top: 1px solid var(--card-border); }
+        .card.active .card-details { max-height: 1200px; opacity: 1; padding-top: 20px; margin-top: 15px; border-top: 1px solid var(--card-border); }
         
         .card-list { list-style: none; }
-        .card-list li { margin-bottom: 12px; font-size: 0.9rem; display: grid; grid-template-columns: 25px 1fr; color: var(--text-muted); }
+        .card-list li { margin-bottom: 12px; font-size: 0.9rem; display: grid; grid-template-columns: 25px 1fr; color: var(--text-muted); line-height: 1.4; }
         .card-list li i { color: var(--accent); font-style: normal; font-weight: 900; }
 
-        /* THEME SWITCH */
         .theme-switch-wrapper { display: flex; align-items: center; }
         .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
         .theme-switch input { display:none; }
@@ -136,10 +132,10 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Scalable IT Infrastructure</h1>
-            <p>Certified Support & Digital Foundation for Industrial Operations.</p>
+            <h1>Expert Remote IT HelpDesk</h1>
+            <p>Infrastructure, CCTV, and Peripheral Support Delivered Anywhere via Secure Connection.</p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="#contact" class="btn btn-primary">Start Ticket</a>
+                <a href="#contact" class="btn btn-primary">Open a Ticket</a>
                 <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-outline">Download UltraViewer</a>
             </div>
         </div>
@@ -148,38 +144,38 @@
     <section id="about">
         <div class="about-grid">
             <div class="about-text">
-                <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">Our Mission</h2>
-                <p>Nexus Core IT is a specialized **Infrastructure Provider** focused on high-availability systems. We build the frameworks that allow businesses to scale without downtime.</p>
+                <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">Your Off-Site Technician</h2>
+                <p>Nexus Core IT provides comprehensive **HelpDesk and Infrastructure** management. We function as your internal IT department, resolving complex hardware and software issues remotely with the precision of a B.S. IT Specialist.</p>
             </div>
             <div class="badge-box">
-                <h4 style="margin-bottom: 10px; font-weight: 800;">Credentials</h4>
-                <p style="font-size: 0.85rem;">• B.S. IT Specialist<br>• Infrastructure Arch<br>• Advanced Support</p>
+                <h4 style="margin-bottom: 10px; font-weight: 800;">Specialties</h4>
+                <p style="font-size: 0.85rem;">• Network & CCTV Architecture<br>• Remote Peripheral Support<br>• Enterprise Infrastructure</p>
             </div>
         </div>
     </section>
 
     <section id="guide">
-        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">Remote Support Guide</h2>
+        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">The Support Protocol</h2>
         <div class="steps-container">
-            <div class="step"><div class="step-num"><span>01</span></div><h3>Contact</h3><p style="font-size:0.85rem; color:var(--text-muted)">Send us your technical brief via WhatsApp.</p></div>
-            <div class="step"><div class="step-num"><span>02</span></div><h3>Access</h3><p style="font-size:0.85rem; color:var(--text-muted)">Connect via secure UltraViewer/TeamViewer.</p></div>
-            <div class="step"><div class="step-num"><span>03</span></div><h3>Resolve</h3><p style="font-size:0.85rem; color:var(--text-muted)">Real-time system repair and optimization.</p></div>
+            <div class="step"><div class="step-num"><span>01</span></div><h3>Request</h3><p style="font-size:0.85rem; color:var(--text-muted)">Message us with your IT or hardware issue.</p></div>
+            <div class="step"><div class="step-num"><span>02</span></div><h3>Connect</h3><p style="font-size:0.85rem; color:var(--text-muted)">Provide UltraViewer ID for a secure session.</p></div>
+            <div class="step"><div class="step-num"><span>03</span></div><h3>Fix</h3><p style="font-size:0.85rem; color:var(--text-muted)">We troubleshoot, repair, and optimize live.</p></div>
         </div>
     </section>
 
     <section id="services">
-        <h2 style="font-size: 2.2rem; margin-bottom: 40px;">Specialized Services</h2>
+        <h2 style="font-size: 2.2rem; margin-bottom: 40px;">Remote Technician Services</h2>
         <div class="service-grid">
             
             <div class="card" onclick="toggleCard(event, this)">
                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=600" class="card-img" alt="Infrastructure">
                 <div class="card-body">
-                    <h3>🏗️ Infrastructure <span class="toggle-icon">+</span></h3>
+                    <h3>🏗️ Infrastructure & CCTV <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Network:</strong> LAN/WAN Design and VPN Tunnels.</span></li>
-                            <li><i>→</i> <span><strong>Servers:</strong> Active Directory and DHCP setup.</span></li>
-                            <li><i>→</i> <span><strong>Storage:</strong> Enterprise NAS redundancy.</span></li>
+                            <li><i>→</i> <span><strong>CCTV:</strong> Remote configuration and troubleshooting for DVR/NVR systems.</span></li>
+                            <li><i>→</i> <span><strong>Networking:</strong> LAN/WAN design and secure VPN tunnels.</span></li>
+                            <li><i>→</i> <span><strong>Servers:</strong> Active Directory, DNS, and DHCP enterprise management.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -188,12 +184,12 @@
             <div class="card" onclick="toggleCard(event, this)">
                 <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=600" class="card-img" alt="Support">
                 <div class="card-body">
-                    <h3>🛠️ Tech Support <span class="toggle-icon">+</span></h3>
+                    <h3>🛠️ HelpDesk Support <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Remote:</strong> 24/7 Troubleshooting live.</span></li>
-                            <li><i>→</i> <span><strong>OS:</strong> Deployment with security hardening.</span></li>
-                            <li><i>→</i> <span><strong>Diagnostics:</strong> Firmware error resolution.</span></li>
+                            <li><i>→</i> <span><strong>Printers:</strong> Driver installation and remote spooler troubleshooting.</span></li>
+                            <li><i>→</i> <span><strong>OS Support:</strong> Full Windows/Linux environment repair and optimization.</span></li>
+                            <li><i>→</i> <span><strong>Software:</strong> Installation and configuration of corporate applications.</span></li>
                         </ul>
                         <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-small">Download UltraViewer</a>
                     </div>
@@ -203,12 +199,12 @@
             <div class="card" onclick="toggleCard(event, this)">
                 <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600" class="card-img" alt="Data">
                 <div class="card-body">
-                    <h3>🔒 Data Security <span class="toggle-icon">+</span></h3>
+                    <h3>🔒 Security & Maintenance <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Recovery:</strong> Salvaging data from failed drives.</span></li>
-                            <li><i>→</i> <span><strong>Cybersecurity:</strong> Implementation of EDR protocols.</span></li>
-                            <li><i>→</i> <span><strong>Backups:</strong> Automated disaster recovery.</span></li>
+                            <li><i>→</i> <span><strong>Backups:</strong> Automated NVR footage and critical data redundancy.</span></li>
+                            <li><i>→</i> <span><strong>Hardening:</strong> Driver updates and security patching for all devices.</span></li>
+                            <li><i>→</i> <span><strong>Recovery:</strong> Salvaging data from failed local or network drives.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -219,18 +215,18 @@
 
     <section id="contact">
         <div style="max-width: 600px; margin: 0 auto; background: var(--section-bg); padding: 50px; border-radius: 12px; border: 1px solid var(--card-border);">
-            <h2>Support Portal</h2>
+            <h2>Submit a Ticket</h2>
             <form id="whatsappForm">
-                <input type="text" id="name" placeholder="Name / Company" required style="width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);">
-                <textarea id="message" rows="4" placeholder="Brief technical summary..." required style="width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);"></textarea>
-                <button type="submit" class="btn btn-whatsapp">Initialize Connection</button>
+                <input type="text" id="name" placeholder="Name / Organization" required style="width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);">
+                <textarea id="message" rows="4" placeholder="Briefly describe the issue (Printer, DVR, Network, etc.)" required style="width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);"></textarea>
+                <button type="submit" class="btn btn-whatsapp">Send to Operations</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 NEXUS CORE IT SOLUTIONS.</p>
-        <p style="margin-top: 10px; opacity: 0.4;">Led by B.S. IT Specialist | Infrastructure & Support</p>
+        <p>&copy; 2026 NEXUS CORE IT SOLUTIONS. Professional Remote Assistance.</p>
+        <p style="margin-top: 10px; opacity: 0.4;">Bassel Safi | B.S. IT Specialist & Network Engineer</p>
     </footer>
 
     <script>
@@ -245,6 +241,7 @@
             localStorage.setItem('theme', theme);
         });
 
+        // FIXED LOGIC: Ensures one card at a time with identified information
         function toggleCard(event, cardElement) {
             event.stopPropagation();
             const isActive = cardElement.classList.contains('active');
@@ -254,7 +251,7 @@
 
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const phoneNumber = "YOUR_NUMBER"; // Replace this
+            const phoneNumber = "YOUR_NUMBER"; // ENTER YOUR NUMBER HERE
             const text = `*NEXUS CORE IT TICKET*%0A*Client:* ${document.getElementById('name').value}%0A*Issue:* ${document.getElementById('message').value}`;
             window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
         });
