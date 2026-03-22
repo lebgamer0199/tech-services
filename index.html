@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bassel Tech | Professional IT & Remote Solutions</title>
+    <title>Bassel Tech | Professional IT & Business Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -20,7 +20,7 @@
         nav ul li a { color: #fff; text-decoration: none; padding: 0 20px; font-weight: 600; font-size: 0.9rem; }
 
         .hero {
-            height: 80vh;
+            height: 70vh;
             background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(26, 37, 47, 0.85)), 
                         url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=1470');
             background-size: cover; background-position: center;
@@ -31,20 +31,23 @@
         .hero-content p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
         
         .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-        .btn { 
-            padding: 15px 30px; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 8px;
-            transition: 0.3s; text-decoration: none; display: inline-block; border: none;
-        }
+        .btn { padding: 15px 30px; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 8px; transition: 0.3s; text-decoration: none; display: inline-block; border: none; }
         .btn-primary { background: #3498db; color: white; }
         .btn-ultra { background: #f39c12; color: white; }
         .btn-whatsapp { background: #25d366; color: white; width: 100%; margin-top: 10px; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
         section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        h2 { font-size: 2.2rem; margin-bottom: 40px; color: #1a252f; }
+        h2 { font-size: 2.2rem; margin-bottom: 20px; color: #1a252f; }
 
-        /* Tutorial Section Styles */
-        #how-it-works { background: #fff; border-radius: 20px; margin-top: 40px; margin-bottom: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        /* About Section Styles */
+        #about { background: #fff; border-radius: 20px; margin: 40px auto; padding: 60px 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: left; }
+        .about-container { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+        .about-text { flex: 2; min-width: 300px; }
+        .about-badge { flex: 1; min-width: 200px; background: #f8f9fa; padding: 30px; border-radius: 12px; border-left: 5px solid #3498db; }
+        .badge-title { font-weight: 800; color: #1a252f; display: block; margin-bottom: 10px; }
+
+        #how-it-works { background: #f1f4f8; border-radius: 20px; margin-bottom: 40px; }
         .steps-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-top: 30px; }
         .step { flex: 1; min-width: 250px; padding: 20px; }
         .step-num { width: 40px; height: 40px; background: #3498db; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: 800; }
@@ -68,8 +71,7 @@
     <nav>
         <div class="logo">Bassel<span>Tech</span></div>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#how-it-works">How it Works</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -78,10 +80,25 @@
     <section id="home" class="hero" style="max-width: 100%;">
         <div class="hero-content">
             <h1>Expert IT Support & Maintenance</h1>
-            <p>On-site Repairs & Secure Remote Solutions for Businesses</p>
+            <p>Certified Solutions for Data Recovery, Hardware, and Network Systems</p>
             <div class="btn-group">
-                <a href="#contact" class="btn btn-primary">Book a Repair</a>
-                <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-ultra">Download UltraViewer</a>
+                <a href="#contact" class="btn btn-primary">Book a Service</a>
+                <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-ultra">Get UltraViewer</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>About Bassel Tech Solutions</h2>
+                <p>We are a dedicated IT service provider specializing in advanced hardware repair and infrastructure management. Our mission is to provide high-level technical support to both individuals and businesses, ensuring your data is safe and your hardware is optimized.</p>
+                <p style="margin-top: 15px;">With a strong background in computer science and network engineering, we bridge the gap between complex technology and your daily operational needs.</p>
+            </div>
+            <div class="about-badge">
+                <span class="badge-title">📜 Certified Expertise</span>
+                <p>Professional IT Certifications from <strong>Confidential Institute</strong>.</p>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Specialized in: Networking, Cybersecurity, and Database Management.</p>
             </div>
         </div>
     </section>
@@ -108,28 +125,27 @@
     </section>
 
     <section id="services">
-        <h2>Professional Solutions</h2>
+        <h2>Our Specialized Services</h2>
         <div class="service-grid">
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=600" class="card-img" alt="Data Recovery">
                 <div class="card-body">
                     <h3>💾 Data Restoration</h3>
-                    <p>Professional recovery for failed hard drives and deleted partitions. We save what others can't.</p>
+                    <p>Expert recovery for failed storage devices. We utilize specialized tools to retrieve your lost files securely.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" class="card-img" alt="Hardware Repair">
                 <div class="card-body">
                     <h3>💻 Laptop & PC Repair</h3>
-                    <p>Hardware diagnostics, screen repairs, and performance tuning for all major computer brands.</p>
+                    <p>Comprehensive diagnostics and hardware replacement for all personal and business workstations.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=600" class="card-img" alt="Business Support">
                 <div class="card-body">
                     <h3>🌐 Business Remote Support</h3>
-                    <p>Network maintenance, server management, and printer driver troubleshooting via UltraViewer.</p>
-                    <a href="https://www.ultraviewer.net/en/download.html" target="_blank" style="margin-top:15px; font-size:0.8rem;" class="btn btn-ultra">Get UltraViewer</a>
+                    <p>Server management, printer configurations, and network troubleshooting via secure remote access.</p>
                 </div>
             </div>
         </div>
@@ -138,7 +154,6 @@
     <section id="contact">
         <div class="contact-box">
             <h2>Start Your Ticket</h2>
-            <p style="margin-bottom:20px; color:#777;">Submit details below to chat with a technician on WhatsApp.</p>
             <form id="whatsappForm">
                 <input type="text" id="name" placeholder="Your Full Name" required>
                 <select id="service">
@@ -147,8 +162,8 @@
                     <option value="Data Recovery">Data Recovery</option>
                     <option value="Laptop Repair">Laptop/PC Repair</option>
                 </select>
-                <textarea id="message" rows="4" placeholder="Describe your issue..." required></textarea>
-                <button type="submit" class="btn btn-whatsapp">Send to WhatsApp</button>
+                <textarea id="message" rows="4" placeholder="Briefly describe your issue..." required></textarea>
+                <button type="submit" class="btn btn-whatsapp">Chat on WhatsApp</button>
             </form>
         </div>
     </section>
@@ -160,9 +175,7 @@
     <script>
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // --- CHANGE THE NUMBER BELOW ---
-            const phoneNumber = "1234567890"; 
-            
+            const phoneNumber = "YOUR_PHONE_NUMBER"; // UPDATE THIS NUMBER
             const name = document.getElementById('name').value;
             const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
