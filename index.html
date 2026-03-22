@@ -81,7 +81,41 @@
         .card-img { width: 100%; height: 210px; object-fit: cover; }
         .card-body { padding: 25px; }
         .card-body h3 { color: var(--accent); display: flex; justify-content: space-between; align-items: center; font-weight: 800; }
-        .toggle-icon { background: rgba(14, 165, 233, 0.1); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s; color: var(--accent); }
+        /* The box for the icon */
+.toggle-icon { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    width: 28px; 
+    height: 28px; 
+    background: rgba(14, 165, 233, 0.1); /* Subtle blue background */
+    border-radius: 6px; 
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s; 
+}
+
+/* Drawing the arrow using a pseudo-element */
+.toggle-icon::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    transform: rotate(45deg); /* Points down by default */
+    margin-bottom: 2px;
+    transition: border-color 0.3s;
+}
+
+/* When the card is active, the icon rotates 180 degrees to point UP */
+.card.active .toggle-icon { 
+    transform: rotate(180deg); 
+    background: var(--accent); 
+}
+
+/* Change arrow color to white when the background turns blue */
+.card.active .toggle-icon::after {
+    border-color: white;
+}
         
         .card.active .toggle-icon { transform: rotate(45deg); color: #ef4444; background: rgba(239, 68, 68, 0.1); }
         
@@ -213,7 +247,7 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
         <span>Infrastructure & CCTV</span>
     </div>
-    <span class="toggle-icon">+</span>
+    <span class="toggle-icon"></span>
 </h3>
                     <div class="card-details">
                         <ul class="card-list">
@@ -233,7 +267,7 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
         <span>HelpDesk Support</span>
     </div>
-    <span class="toggle-icon">+</span>
+    <span class="toggle-icon"></span>
 </h3>
                     <div class="card-details">
                         <ul class="card-list">
@@ -254,7 +288,7 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
         <span>Security & Maintenance</span>
     </div>
-    <span class="toggle-icon">+</span>
+    <span class="toggle-icon"></span>
 </h3>
                     <div class="card-details">
                         <ul class="card-list">
