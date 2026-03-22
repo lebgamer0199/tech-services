@@ -311,47 +311,58 @@
         </div>
     </section>
 
-    <section id="contact" style="padding: 100px 20px; background: var(--tutorial-bg);">
-    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <section id="contact" style="padding: 100px 20px; background: var(--tutorial-bg); border-top: 1px solid var(--card-border);">
+    <div style="max-width: 850px; margin: 0 auto; text-align: center;">
         
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(34, 197, 94, 0.1); padding: 8px 16px; border-radius: 50px; margin-bottom: 20px; border: 1px solid rgba(34, 197, 94, 0.2);">
-            <span style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #22c55e;"></span>
-            <span style="font-size: 0.75rem; font-weight: 700; color: #22c55e; text-transform: uppercase; letter-spacing: 1px;">Systems Online | Ready for Remote Session</span>
+        <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(34, 197, 94, 0.08); padding: 10px 20px; border-radius: 50px; margin-bottom: 25px; border: 1px solid rgba(34, 197, 94, 0.2);">
+            <span style="width: 10px; height: 10px; background: #22c55e; border-radius: 50%; display: inline-block; box-shadow: 0 0 12px #22c55e; animation: pulse 2s infinite;"></span>
+            <span style="font-size: 0.8rem; font-weight: 800; color: #22c55e; text-transform: uppercase; letter-spacing: 1.5px;">Operations Live | Remote Desk Ready</span>
         </div>
 
-        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 15px;">Initialize Support Ticket</h2>
-        <p style="color: var(--text-muted); margin-bottom: 40px;">Briefly describe your technical issue below. Our operations desk will initialize a secure remote connection immediately.</p>
+        <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px;">Support & Infrastructure Portal</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 45px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Initialize a secure transmission to our technical desk. We resolve 95% of organizational IT friction via remote encrypted channels.
+        </p>
 
-        <div style="background: var(--section-bg); padding: 40px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--card-border); text-align: left;">
+        <div style="background: var(--section-bg); padding: 50px; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid var(--card-border); text-align: left;">
             <form id="whatsappForm">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px;">
                     <div>
-                        <label style="display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; opacity: 0.7;">Organization / Client Name</label>
-                        <input type="text" id="name" placeholder="e.g. Nexus Corp" required style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-color); color: var(--text-color); font-size: 0.95rem;">
+                        <label style="display: block; font-size: 0.75rem; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; color: var(--accent); letter-spacing: 1px;">Organization Name</label>
+                        <input type="text" id="name" placeholder="Entity / Company Name" required style="width: 100%; padding: 16px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg-color); color: var(--text-color); font-size: 1rem; outline: none; transition: 0.3s;">
                     </div>
                     <div>
-                        <label style="display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; opacity: 0.7;">Urgency Level</label>
-                        <select id="urgency" style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-color); color: var(--text-color); font-size: 0.95rem;">
-                            <option>Standard Support</option>
-                            <option>Critical / System Down</option>
-                            <option>Inquiry / Consultation</option>
+                        <label style="display: block; font-size: 0.75rem; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; color: var(--accent); letter-spacing: 1px;">Priority Level</label>
+                        <select id="urgency" style="width: 100%; padding: 16px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg-color); color: var(--text-color); font-size: 1rem; cursor: pointer;">
+                            <option value="Standard Support">Standard Support Request</option>
+                            <option value="CRITICAL: System Down">CRITICAL: Operations Halted</option>
+                            <option value="CCTV/Security Inquiry">CCTV / Infrastructure Inquiry</option>
+                            <option value="Software/Driver Issue">Software / Peripheral Issue</option>
                         </select>
                     </div>
                 </div>
 
-                <div style="margin-bottom: 25px;">
-                    <label style="display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; opacity: 0.7;">Technical Brief (Issue Description)</label>
-                    <textarea id="message" rows="4" placeholder="Describe the printer, network, or CCTV issue..." required style="width: 100%; padding: 14px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-color); color: var(--text-color); font-size: 0.95rem; resize: none;"></textarea>
+                <div style="margin-bottom: 30px;">
+                    <label style="display: block; font-size: 0.75rem; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; color: var(--accent); letter-spacing: 1px;">Technical Issue Brief</label>
+                    <textarea id="message" rows="5" placeholder="Please describe the printer, DVR, or network error in detail..." required style="width: 100%; padding: 16px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg-color); color: var(--text-color); font-size: 1rem; resize: none; line-height: 1.5;"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                    Transmit Support Ticket
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 20px; font-size: 1.1rem; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 12px; border-radius: 12px; transition: 0.4s; box-shadow: 0 10px 20px rgba(14, 165, 233, 0.2);">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    TRANSMIT TICKET TO OPERATIONS
                 </button>
             </form>
         </div>
     </div>
 </section>
+
+<style>
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+</style>
     
     <footer>
         <p>&copy; 2026 NEXUS CORE IT SOLUTIONS. Professional Remote Assistance.</p>
