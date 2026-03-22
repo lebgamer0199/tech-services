@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bassel Tech | Professional IT & Business Solutions</title>
+    <title>Bassel Tech | IT Support & Remote Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* CSS STYLING */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { line-height: 1.6; color: #333; background: #f4f7f6; scroll-behavior: smooth; }
         
-        /* Navigation */
         nav { 
             display: flex; justify-content: space-around; align-items: center; 
             background: #1a252f; color: #fff; padding: 1.2rem 0; 
@@ -19,13 +17,11 @@
         .logo { font-size: 1.6rem; font-weight: 800; letter-spacing: -1px; }
         .logo span { color: #3498db; }
         nav ul { display: flex; list-style: none; }
-        nav ul li a { color: #fff; text-decoration: none; padding: 0 20px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        nav ul li a:hover { color: #3498db; }
+        nav ul li a { color: #fff; text-decoration: none; padding: 0 20px; font-weight: 600; font-size: 0.9rem; }
 
-        /* Hero Section */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(26, 37, 47, 0.8), rgba(26, 37, 47, 0.8)), 
+            height: 85vh;
+            background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(26, 37, 47, 0.85)), 
                         url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=1470');
             background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center;
@@ -34,45 +30,31 @@
         .hero-content h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 800; }
         .hero-content p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
         
-        /* Services Section */
-        #services { padding: 100px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        #services h2 { font-size: 2.5rem; margin-bottom: 50px; position: relative; padding-bottom: 15px; }
-        #services h2::after { content: ''; width: 60px; height: 4px; background: #3498db; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        /* Specialized Buttons */
+        .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn { 
+            padding: 15px 30px; font-size: 1rem; font-weight: 700; cursor: pointer; border-radius: 8px;
+            transition: 0.3s; text-decoration: none; display: inline-block; border: none;
+        }
+        .btn-primary { background: #3498db; color: white; }
+        .btn-ultra { background: #f39c12; color: white; } /* UltraViewer Orange */
+        .btn-whatsapp { background: #25d366; color: white; width: 100%; margin-top: 10px; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); opacity: 0.9; }
 
-        .service-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px; margin-top: 20px;
-        }
-        .card { 
-            background: white; padding: 0; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s;
-        }
+        #services { padding: 100px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
         .card:hover { transform: translateY(-10px); }
         .card-img { width: 100%; height: 200px; object-fit: cover; }
         .card-body { padding: 30px; text-align: left; }
-        .card h3 { margin-bottom: 15px; color: #2c3e50; font-size: 1.3rem; }
 
-        /* Contact Section */
         #contact { padding: 100px 20px; background: #f1f4f8; }
         .contact-box { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
-        
-        input, textarea, select { 
-            width: 100%; padding: 15px; margin: 12px 0; border: 1px solid #e1e1e1; border-radius: 8px; font-size: 1rem;
-            background: #f9f9f9;
-        }
-        .btn { 
-            width: 100%; background: #25d366; color: white; border: none; 
-            padding: 18px; font-size: 1.1rem; font-weight: 700; cursor: pointer; border-radius: 8px;
-            transition: 0.3s; display: inline-block; text-decoration: none;
-        }
-        .btn:hover { background: #128c7e; transform: scale(1.02); }
+        input, textarea, select { width: 100%; padding: 15px; margin: 12px 0; border: 1px solid #e1e1e1; border-radius: 8px; font-size: 1rem; background: #f9f9f9; }
 
-        footer { text-align: center; padding: 50px; background: #1a252f; color: white; font-size: 0.9rem; }
+        footer { text-align: center; padding: 50px; background: #1a252f; color: white; }
 
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.2rem; }
-            nav ul { display: none; }
-        }
+        @media (max-width: 768px) { .hero-content h1 { font-size: 2.2rem; } nav ul { display: none; } }
     </style>
 </head>
 <body>
@@ -88,34 +70,38 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Professional IT Support</h1>
-            <p>Data Recovery, Laptop Repair & Managed Business Networks</p>
-            <a href="#contact" class="btn" style="width: auto; padding: 15px 40px;">Request a Quote</a>
+            <h1>Expert IT Support & Maintenance</h1>
+            <p>On-site Repairs & Global Remote Business Solutions</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Request a Service</a>
+                <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-ultra">Download UltraViewer</a>
+            </div>
         </div>
     </section>
 
     <section id="services">
-        <h2>Our Specialized Services</h2>
+        <h2>Professional Solutions</h2>
         <div class="service-grid">
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=600" class="card-img" alt="Data Recovery">
                 <div class="card-body">
                     <h3>💾 Data Restoration</h3>
-                    <p>Recover lost files from failed hard drives, SSDs, and formatted USBs. We handle physical and logical data loss.</p>
+                    <p>Professional recovery for failed hard drives and deleted partitions. We save what others can't.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" class="card-img" alt="Hardware Repair">
                 <div class="card-body">
                     <h3>💻 Laptop & PC Repair</h3>
-                    <p>Screen replacements, battery swaps, and motherboard diagnostics for all major brands (Apple, HP, Dell, etc.).</p>
+                    <p>Hardware diagnostics, screen repairs, and performance tuning for all major computer brands.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=600" class="card-img" alt="Business Support">
                 <div class="card-body">
-                    <h3>🌐 Business Remote Support</h3>
-                    <p>Remote troubleshooting for printer drivers, network maintenance, server management, and software configuration.</p>
+                    <h3>🌐 Remote Business Support</h3>
+                    <p>Network maintenance, server management, and printer driver troubleshooting via UltraViewer.</p>
+                    <a href="https://www.ultraviewer.net/en/download.html" target="_blank" style="margin-top:15px; font-size:0.8rem;" class="btn btn-ultra">Get UltraViewer</a>
                 </div>
             </div>
         </div>
@@ -123,45 +109,38 @@
 
     <section id="contact">
         <div class="contact-box">
-            <h2>Start Your Repair</h2>
-            <p style="margin-bottom:20px; color:#777;">Submit the form below to chat instantly on WhatsApp.</p>
-            
+            <h2>Start Your Ticket</h2>
+            <p style="margin-bottom:20px; color:#777;">Submit details below to chat with a technician on WhatsApp.</p>
             <form id="whatsappForm">
-                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="name" placeholder="Your Full Name" required>
                 <select id="service">
-                    <option value="General Inquiry">Select Service Type</option>
-                    <option value="Remote Business Support">Remote Business Support</option>
-                    <option value="Network/Server Maintenance">Network & Server Maintenance</option>
+                    <option value="Remote Support">Remote Business Support</option>
+                    <option value="Network Maintenance">Network & Server Maintenance</option>
                     <option value="Data Recovery">Data Recovery</option>
-                    <option value="Laptop/PC Repair">Laptop/PC Repair</option>
+                    <option value="Laptop Repair">Laptop/PC Repair</option>
                 </select>
-                <textarea id="message" rows="4" placeholder="Describe the problem (e.g., 'Server is down' or 'Printer driver issue')" required></textarea>
-                <button type="submit" class="btn">Chat on WhatsApp</button>
+                <textarea id="message" rows="4" placeholder="Describe your issue..." required></textarea>
+                <button type="submit" class="btn btn-whatsapp">Send to WhatsApp</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Bassel Tech Solutions. Expert IT Support.</p>
+        <p>&copy; 2026 Bassel Tech Solutions. Expert Support When You Need It.</p>
     </footer>
 
     <script>
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            // --- CONFIGURATION ---
-            // REPLACE THIS NUMBER WITH YOUR OWN (Example: 96170123456)
-            const phoneNumber = "70118085"; 
-            // ---------------------
-
+            const phoneNumber = "1234567890"; // REPLACE WITH YOUR NUMBER
             const name = document.getElementById('name').value;
             const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
 
-            const text = `*New IT Request*%0A%0A` +
+            const text = `*NEW IT SERVICE REQUEST*%0A%0A` +
                          `*Name:* ${name}%0A` +
                          `*Service:* ${service}%0A` +
-                         `*Details:* ${message}`;
+                         `*Problem:* ${message}`;
 
             window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
         });
