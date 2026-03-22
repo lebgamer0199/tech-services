@@ -8,7 +8,6 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><path d=%22M50 5L89 27.5V72.5L50 95L11 72.5V27.5L50 5Z%22 fill=%22%230ea5e9%22/><text y=%2270%22 font-size=%2245%22 fill=%22white%22 x=%2220%22 font-family=%22Arial%22 font-weight=%22bold%22>NC</text></svg>">
     
     <style>
-        /* THEMES & VARIABLES */
         :root {
             --bg-color: #f8fafc;
             --section-bg: #ffffff;
@@ -35,7 +34,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; transition: background 0.3s, color 0.3s, border-color 0.3s; }
         body { line-height: 1.6; color: var(--text-color); background: var(--bg-color); scroll-behavior: smooth; }
         
-        /* Navigation */
         nav { 
             display: flex; justify-content: space-around; align-items: center; 
             background: var(--nav-bg); color: #fff; padding: 0.9rem 0; 
@@ -49,22 +47,18 @@
         nav ul { display: flex; list-style: none; }
         nav ul li a { color: #fff; text-decoration: none; padding: 0 15px; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
 
-        /* Hero */
         .hero {
-            height: 70vh;
+            height: 65vh;
             background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.7)), 
                         url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1470');
             background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 20px; margin-top: 60px;
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; }
-        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 30px; }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 15px; }
 
-        /* Buttons */
         .btn { padding: 14px 32px; font-size: 0.95rem; font-weight: 700; cursor: pointer; border-radius: 6px; transition: 0.3s; text-decoration: none; display: inline-block; border: none; text-transform: uppercase; }
         .btn-primary { background: var(--accent); color: white; }
         .btn-whatsapp { background: #22c55e; color: white; width: 100%; margin-top: 20px; }
-        .btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
         section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
 
@@ -73,35 +67,29 @@
         .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; align-items: center; }
         .badge-box { background: rgba(14, 165, 233, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid var(--accent); }
 
-        /* VISUAL SERVICES GRID (With Images) */
+        /* TUTORIAL GUIDE */
+        #guide { background: var(--tutorial-bg); max-width: 100%; border-radius: 0 0 50px 50px; padding: 100px 20px; }
+        .steps-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
+        .step { flex: 1; min-width: 280px; padding: 40px; background: var(--section-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--card-border); }
+        .step-num { width: 45px; height: 45px; background: var(--accent); color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: 800; transform: rotate(45deg); }
+        .step-num span { transform: rotate(-45deg); }
+
+        /* SERVICE CARDS */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
-        
-        .card { 
-            background: var(--section-bg); border-radius: 16px; overflow: hidden; 
-            box-shadow: var(--shadow); border: 1px solid var(--card-border); 
-            text-align: left; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .card:hover { border-color: var(--accent); transform: translateY(-8px); }
-        .card-img { width: 100%; height: 210px; object-fit: cover; opacity: 0.9; transition: transform 0.3s; }
-        .card:hover .card-img { transform: scale(1.05); }
-
+        .card { background: var(--section-bg); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--card-border); text-align: left; cursor: pointer; }
+        .card:hover { border-color: var(--accent); }
+        .card-img { width: 100%; height: 210px; object-fit: cover; transition: 0.3s; }
         .card-body { padding: 25px; }
-        .card-body h3 { color: var(--accent); display: flex; justify-content: space-between; align-items: center; font-weight: 700;}
-        .card-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
-
-        /* Sliding Details Alignment */
-        .card-details { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, opacity 0.3s; opacity: 0; }
+        .card-body h3 { color: var(--accent); display: flex; justify-content: space-between; align-items: center; }
+        .toggle-icon { background: rgba(14, 165, 233, 0.1); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.3s; }
+        .card.active .toggle-icon { transform: rotate(45deg); color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+        .card-details { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.5s ease; }
         .card.active .card-details { max-height: 500px; opacity: 1; padding-top: 20px; margin-top: 15px; border-top: 1px solid var(--card-border); }
-        
         .card-list { list-style: none; }
-        .card-list li { margin-bottom: 12px; font-size: 0.9rem; display: grid; grid-template-columns: 25px 1fr; align-items: start; color: var(--text-muted); }
+        .card-list li { margin-bottom: 12px; font-size: 0.9rem; display: grid; grid-template-columns: 25px 1fr; color: var(--text-muted); }
         .card-list li i { color: var(--accent); font-style: normal; font-weight: 800; }
 
-        .toggle-icon { background: rgba(52, 152, 219, 0.1); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1rem; transition: 0.3s; }
-        .card.active .toggle-icon { transform: rotate(45deg); color: #e74c3c; background: rgba(231, 76, 60, 0.1); }
-
-        /* DARK MODE SWITCH */
+        /* THEME SWITCH */
         .theme-switch-wrapper { display: flex; align-items: center; }
         .theme-switch { display: inline-block; height: 24px; position: relative; width: 50px; }
         .theme-switch input { display:none; }
@@ -111,7 +99,6 @@
         input:checked + .slider:before { transform: translateX(26px); }
 
         footer { text-align: center; padding: 60px; background: #000; color: #94a3b8; font-size: 0.85rem; }
-
         @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
@@ -129,8 +116,8 @@
         <div class="nav-right">
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#guide">Process</a></li>
                 <li><a href="#services">Infrastructure</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
@@ -145,98 +132,95 @@
         <div class="hero-content">
             <h1>Scalable IT Infrastructure</h1>
             <p>Reliable Technical Support and Digital Foundation for Industrial & Enterprise Operations.</p>
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="#contact" class="btn btn-primary">Request Support</a>
-                <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn" style="border: 1px solid white; color: white;">Get Remote Tool</a>
-            </div>
+            <a href="#contact" class="btn btn-primary">Request Support</a>
         </div>
     </header>
 
     <section id="about">
         <div class="about-grid">
             <div class="about-text">
-                <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">The Nexus Standard</h2>
-                <p>Nexus Core IT is a premier <strong>Infrastructure Provider</strong> dedicated to ensuring business continuity. We specialize in building and maintaining the technical backbones of modern organizations.</p>
-                <p style="margin-top: 15px; color: var(--text-muted);">Founded on technical precision and led by an IT specialist with a **Bachelor of Science**, we leverage experience in high-output industrial environments to provide enterprise-grade support remotely and on-site.</p>
+                <h2 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">Technical Excellence</h2>
+                <p>Nexus Core IT is an <strong>Infrastructure Provider</strong> specialized in maintaining the technical backbones of modern organizations. Led by a specialist with a **B.S. in Information Technology**.</p>
             </div>
             <div class="badge-box">
-                <h4 style="margin-bottom: 10px; font-weight: 800;">Certified Expertise</h4>
-                <p style="font-size: 0.9rem; line-height: 1.8;">
-                    • <strong>B.S. Information Technology</strong><br>
-                    • Professional Institute Certified<br>
-                    • Infrastructure Architecture<br>
-                    • Advanced Tech Support
-                </p>
+                <h4 style="margin-bottom: 10px; font-weight: 800;">Verified</h4>
+                <p style="font-size: 0.85rem;">• B.S. IT Degree<br>• Infrastructure Arch<br>• Advanced Tech Support</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="guide">
+        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">The Nexus Protocol</h2>
+        <p style="color: var(--text-muted);">Three steps to complete system resolution.</p>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-num"><span>01</span></div>
+                <h3>Intake</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Brief your infrastructure issue via our secure WhatsApp portal.</p>
+            </div>
+            <div class="step">
+                <div class="step-num"><span>02</span></div>
+                <h3>Access</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Activate UltraViewer to establish an encrypted remote session.</p>
+            </div>
+            <div class="step">
+                <div class="step-num"><span>03</span></div>
+                <h3>Repair</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Our engineers perform deep-system repair and optimization live.</p>
             </div>
         </div>
     </section>
 
     <section id="services">
-        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">Managed Infrastructure Solutions</h2>
-        <p style="color: var(--text-muted); margin-bottom: 40px;">End-to-end technical support for your digital core.</p>
-        
+        <h2 style="font-size: 2.2rem; margin-bottom: 40px;">Infrastructure Solutions</h2>
         <div class="service-grid">
-            
             <div class="card" onclick="toggleCard(this)">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Infrastructure Deployment">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=600" class="card-img" alt="Infrastructure">
                 <div class="card-body">
                     <h3>🏗️ Infrastructure <span class="toggle-icon">+</span></h3>
-                    <p class="card-subtitle">Building your technical foundation.</p>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Network Design:</strong> LAN/WAN architecture and secure VPN tunnels.</span></li>
-                            <li><i>→</i> <span><strong>Server Setup:</strong> Active Directory, DNS, DHCP deployment, and management.</span></li>
-                            <li><i>→</i> <span><strong>Storage:</strong> High-availability NAS and secure Cloud backup systems.</span></li>
+                            <li><i>→</i> <span>Network architecture and secure VPN tunnels.</span></li>
+                            <li><i>→</i> <span>Active Directory and Server deployment.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="card" onclick="toggleCard(this)">
-                <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Technical Support">
+                <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=600" class="card-img" alt="Support">
                 <div class="card-body">
                     <h3>🛠️ Tech Support <span class="toggle-icon">+</span></h3>
-                    <p class="card-subtitle">24/7 Remote and On-Site resolution.</p>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Remote Desktop:</strong> Instant troubleshooting via encrypted UltraViewer.</span></li>
-                            <li><i>→</i> <span><strong>System Maintenance:</strong> Security patching, OS hardening, and optimization.</span></li>
-                            <li><i>→</i> <span><strong>Hardware Diagnostics:</strong> Expert component analysis and repair coordination.</span></li>
+                            <li><i>→</i> <span>Instant troubleshooting via encrypted UltraViewer.</span></li>
+                            <li><i>→</i> <span>System hardening and OS optimization.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="card" onclick="toggleCard(this)">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Data and Security Recovery">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600" class="card-img" alt="Data">
                 <div class="card-body">
-                    <h3>🔒 Data & Security <span class="toggle-icon">+</span></h3>
-                    <p class="card-subtitle">Protecting and restoring corporate assets.</p>
+                    <h3>🔒 Data Security <span class="toggle-icon">+</span></h3>
                     <div class="card-details">
                         <ul class="card-list">
-                            <li><i>→</i> <span><strong>Critical Recovery:</strong> Data restoration from failed or corrupted HDD/SSD/RAID.</span></li>
-                            <li><i>→</i> <span><strong>Prevention:</strong> Firewall and endpoint security (EDR) management.</span></li>
-                            <li><i>→</i> <span><strong>Compliance:</strong> Secure data handling and forensic review standards.</span></li>
+                            <li><i>→</i> <span>Critical data restoration from failed units.</span></li>
+                            <li><i>→</i> <span>Firewall and endpoint security management.</span></li>
                         </ul>
-                        <a href="https://www.ultraviewer.net/en/download.html" target="_blank" class="btn btn-ultra" style="width: 100%; font-size: 0.8rem; margin-top: 15px; text-align: center;">Get UltraViewer</a>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <section id="contact">
-        <div style="max-width: 650px; margin: 0 auto; background: var(--section-bg); padding: 50px; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: var(--shadow);">
-            <h2 style="margin-bottom: 25px;">Support Intake</h2>
+        <div style="max-width: 600px; margin: 0 auto; background: var(--section-bg); padding: 50px; border-radius: 12px; border: 1px solid var(--card-border); box-shadow: var(--shadow);">
+            <h2>Initialize Support</h2>
             <form id="whatsappForm">
-                <input type="text" id="name" placeholder="Contact Name / Organization" required style="width: 100%; padding: 15px; margin-bottom: 10px; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color); outline: none;">
-                <select id="service" style="width: 100%; padding: 15px; margin-bottom: 10px; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);">
-                    <option value="Infrastructure Deployment">Infrastructure Deployment</option>
-                    <option value="Remote Technical Support">Remote Technical Support</option>
-                    <option value="Critical Data Recovery">Data & Security Recovery</option>
-                </select>
-                <textarea id="message" rows="4" placeholder="Brief technical summary..." required style="width: 100%; padding: 15px; margin-bottom: 10px; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color); outline: none;"></textarea>
+                <input type="text" id="name" placeholder="Name / Organization" required style="width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);">
+                <textarea id="message" rows="4" placeholder="Brief technical summary..." required style="width: 100%; padding: 15px; margin: 10px 0; border: 1px solid var(--card-border); border-radius: 8px; background: var(--bg-color); color: var(--text-color);"></textarea>
                 <button type="submit" class="btn btn-whatsapp">Send to Operations</button>
             </form>
         </div>
@@ -248,7 +232,6 @@
     </footer>
 
     <script>
-        // THEME CONTROLLER
         const toggleSwitch = document.querySelector('#checkbox');
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.body.setAttribute('data-theme', savedTheme);
@@ -260,21 +243,17 @@
             localStorage.setItem('theme', theme);
         });
 
-        // SLIDING CARDS
         function toggleCard(cardElement) {
             const isActive = cardElement.classList.contains('active');
+            // This ensures only ONE card stays open at a time
             document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
             if (!isActive) cardElement.classList.add('active');
         }
 
-        // WHATSAPP
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const phoneNumber = "YOUR_NUMBER"; // ENTER YOUR NUMBER (Country code + number, e.g., 96170123456)
-            const name = document.getElementById('name').value;
-            const service = document.getElementById('service').value;
-            const msg = document.getElementById('message').value;
-            const text = `*NEXUS CORE IT TICKET*%0A%0A*Client:* ${name}%0A*Type:* ${service}%0A*Brief:* ${msg}`;
+            const phoneNumber = "YOUR_NUMBER"; // Replace with your number
+            const text = `*NEXUS CORE IT*%0A*Client:* ${document.getElementById('name').value}%0A*Brief:* ${document.getElementById('message').value}`;
             window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
         });
     </script>
