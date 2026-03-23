@@ -269,20 +269,19 @@ body.light-mode nav.scrolled,
 }
 
 nav {
-    transition: background 0.3s ease, padding 0.3s ease, border 0.3s ease !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    /* Smoothly animate the change from transparent to solid */
+    transition: background 0.4s ease, border 0.4s ease, box-shadow 0.4s ease, padding 0.3s ease !important;
 }
 
-/* Ensure the "CORE" span always stays Blue no matter what */
-.logo-text span {
-    color: var(--accent) !important;
-}
-
-/* Ensure the Support Button stays Blue with White text */
+/* Ensure the Support Portal button always stays White-on-Blue for contrast */
 .nav-ticket-btn {
     background: var(--accent) !important;
     color: white !important;
+}
+
+/* Ensure 'CORE' stays blue in both modes */
+.logo-text span {
+    color: var(--accent) !important;
 }
         
     </style>
@@ -558,32 +557,46 @@ function updateHeader() {
     const navbar = document.querySelector('nav');
     const navLinks = document.querySelectorAll('nav ul li a, .logo-text');
     const checkbox = document.getElementById('checkbox');
-    const isLightMode = !checkbox.checked; // Assuming checked = Dark, unchecked = Light
+    const isLightMode = !checkbox.checked; // Assuming unchecked = Light Mode
 
     if (window.scrollY > 20) {
         navbar.classList.add('scrolled');
         
         if (isLightMode) {
-            navbar.style.background = "rgba(255, 255, 255, 0.9)";
-            navbar.style.borderBottom = "1px solid #ddd";
-            // Force all text to Black
-            navLinks.forEach(link => link.style.setProperty('color', '#111111', 'important'));
+            // LIGHT MODE: Solid White, No Transparency
+            navbar.style.background = "#ffffff"; 
+            navbar.style.backdropFilter = "none";
+            navbar.style.webkitBackdropFilter = "none";
+            navbar.style.borderBottom = "1px solid #e2e8f0";
+            navbar.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.05)";
+            
+            // Text color to Black for visibility
+            navLinks.forEach(link => link.style.setProperty('color', '#1a1a1a', 'important'));
         } else {
+            // DARK MODE: Transparent & Blurry
             navbar.style.background = "rgba(10, 10, 15, 0.85)";
+            navbar.style.backdropFilter = "blur(15px)";
+            navbar.style.webkitBackdropFilter = "blur(15px)";
             navbar.style.borderBottom = "1px solid rgba(14, 165, 233, 0.2)";
-            // Force all text to White
+            navbar.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.5)";
+            
+            // Text color to White
             navLinks.forEach(link => link.style.setProperty('color', '#ffffff', 'important'));
         }
     } else {
+        // AT THE VERY TOP: Fully Transparent for both modes
         navbar.classList.remove('scrolled');
         navbar.style.background = "transparent";
+        navbar.style.backdropFilter = "none";
         navbar.style.borderBottom = "none";
-        // Reset to default colors when at the very top
+        navbar.style.boxShadow = "none";
+        
+        // Reset to original CSS colors
         navLinks.forEach(link => link.style.color = ""); 
     }
 }
 
-// Run on scroll and when clicking the theme switch
+// Ensure it runs on scroll and on theme switch
 window.addEventListener('scroll', updateHeader);
 document.getElementById('checkbox').addEventListener('change', updateHeader);
        
