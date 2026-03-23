@@ -213,6 +213,65 @@ html {
     transition: background-color 0.4s ease, border 0.4s ease, padding 0.3s ease !important;
 }
 
+/* --- Desktop Defaults --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 2000;
+    transition: all 0.4s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+/* --- Mobile Menu Styles (Triggered at 768px) --- */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%; /* Hidden off-screen */
+        top: 70px;
+        flex-direction: column;
+        background: #001f3f; /* Matches your navy blue */
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        padding: 40px 0;
+    }
+
+    .nav-links.active {
+        right: 0; /* Slides in */
+    }
+
+    /* Stack your main content sections for mobile */
+    .hero-section, .services-grid {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 20px;
+    }
+}
+        
 /* This ensures the 'CORE' part stays blue no matter what JS does */
 .logo-text span {
     color: #0ea5e9 !important;
@@ -250,6 +309,25 @@ html {
             </label>
         </div>
     </div>
+
+    <div class="logo">
+        <div class="hexagon">NC</div>
+        <div class="logo-text">NEXUS<span>CORE</span></div>
+    </div>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#process">PROCESS</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#contact" class="nav-ticket-btn">SUPPORT PORTAL</a></li>
+    </ul>
+       
 </nav>
     <header class="hero">
     <div class="hero-content">
@@ -579,6 +657,46 @@ document.getElementById('checkbox').addEventListener('change', syncHeader);
 
 // 3. RUN IMMEDIATELY ON PAGE LOAD
 window.addEventListener('DOMContentLoaded', syncHeader);
+
+const menu = document.querySelector('#mobile-menu');
+const navList = document.querySelector('.nav-links');
+const navbar = document.querySelector('nav');
+const checkbox = document.getElementById('checkbox');
+
+// 1. Toggle Mobile Menu
+menu.addEventListener('click', function() {
+    navList.classList.toggle('active');
+    menu.classList.toggle('is-active'); // For animating the hamburger bars
+});
+
+// 2. Combined Header Logic (Scroll + Theme)
+function updateHeader() {
+    const isLightMode = !checkbox.checked;
+    const navLinks = document.querySelectorAll('nav a, .logo-text');
+
+    if (isLightMode) {
+        // Light Mode is ALWAYS Solid Dark Blue for readability
+        navbar.style.backgroundColor = "#001f3f"; 
+        navbar.style.borderBottom = "2px solid #0ea5e9";
+        navLinks.forEach(link => link.style.setProperty('color', '#ffffff', 'important'));
+    } else {
+        // Dark Mode: Transparent at top, Glass when scrolled
+        if (window.scrollY > 20) {
+            navbar.style.backgroundColor = "rgba(10, 10, 15, 0.85)";
+            navbar.style.backdropFilter = "blur(15px)";
+            navbar.style.borderBottom = "1px solid rgba(14, 165, 233, 0.2)";
+        } else {
+            navbar.style.backgroundColor = "transparent";
+            navbar.style.backdropFilter = "none";
+            navbar.style.borderBottom = "none";
+        }
+        navLinks.forEach(link => link.style.color = ""); // Resets to CSS defaults
+    }
+}
+
+window.addEventListener('scroll', updateHeader);
+checkbox.addEventListener('change', updateHeader);
+window.addEventListener('DOMContentLoaded', updateHeader);
        
 </script>
 </body>
