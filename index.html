@@ -43,7 +43,6 @@
             background: var(--nav-bg); color: #fff; padding: 0.9rem 0; 
             position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid var(--card-border);
         }
-        
         .logo-container { display: flex; align-items: center; gap: 12px; }
         .logo-text { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; color: white; }
         .logo-text span { color: var(--accent); }
@@ -74,7 +73,7 @@
         #about { background: var(--section-bg); border-radius: 20px; margin: 40px auto; padding: 60px; text-align: left; box-shadow: var(--shadow); border: 1px solid var(--card-border); }
         .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; align-items: center; }
         .badge-box { background: rgba(14, 165, 233, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid var(--accent); }
-        
+
         #guide { background: var(--tutorial-bg); max-width: 100%; padding: 100px 20px; border-radius: 0 0 50px 50px; }
         .steps-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
         .step { flex: 1; min-width: 280px; padding: 40px; background: var(--section-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--card-border); }
@@ -200,24 +199,24 @@
 html {
     scroll-behavior: smooth;
 }
-
+        
     </style>
 </head>
 <body data-theme="dark">
 
    <nav>
-    <a href="#" class="logo-link" style="text-decoration: none; display: flex; align-items: center; gap: 14px;">
-    <div class="logo-container" style="display: flex; align-items: center;">
-        <svg width="42" height="42" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 5L89 27.5V72.5L50 95L11 72.5V27.5L50 5Z" fill="#0ea5e9"/>
-            <text x="50%" y="68%" text-anchor="middle" font-size="42" fill="white" font-family="Arial, sans-serif" font-weight="bold">NC</text>
-        </svg>
-        
-        <div class="logo-text" style="color: white; font-weight: 800; font-size: 1.6rem; letter-spacing: -1.5px; margin-left: 12px; text-transform: uppercase;">
-            NEXUS<span style="color: var(--accent);">CORE</span>
+    <a href="#" class="logo-link" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+        <div class="logo-container">
+            <svg width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="20" width="60" height="60" rx="10" stroke="#0ea5e9" stroke-width="8"/>
+                <circle cx="50" cy="50" r="12" fill="#0ea5e9"/>
+                <path d="M50 10V20M50 80V90M10 50H20M80 50H90" stroke="#0ea5e9" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <div class="logo-text" style="color: white; font-weight: 800; font-size: 1.4rem; letter-spacing: -1px;">
+                NEXUS<span style="color: var(--accent);">CORE</span>
+            </div>
         </div>
-    </div>
-</a>
+    </a>
 
     <div class="nav-right">
         <ul>
@@ -469,54 +468,6 @@ html {
     </footer>
 
    <script>
-
-function updateHeader() {
-    const navbar = document.querySelector('nav');
-    const navLinks = document.querySelectorAll('nav ul li a, .logo-text');
-    const checkbox = document.getElementById('checkbox');
-    const isLightMode = !checkbox.checked; // Assuming unchecked = Light Mode
-
-    if (window.scrollY > 20) {
-        navbar.classList.add('scrolled');
-        
-        if (isLightMode) {
-            // LIGHT MODE: Solid White, No Transparency
-            navbar.style.background = "#ffffff"; 
-            navbar.style.backdropFilter = "none";
-            navbar.style.webkitBackdropFilter = "none";
-            navbar.style.borderBottom = "1px solid #e2e8f0";
-            navbar.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.05)";
-            
-            // Text color to Black for visibility
-            navLinks.forEach(link => link.style.setProperty('color', '#1a1a1a', 'important'));
-        } else {
-            // DARK MODE: Transparent & Blurry
-            navbar.style.background = "rgba(10, 10, 15, 0.85)";
-            navbar.style.backdropFilter = "blur(15px)";
-            navbar.style.webkitBackdropFilter = "blur(15px)";
-            navbar.style.borderBottom = "1px solid rgba(14, 165, 233, 0.2)";
-            navbar.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.5)";
-            
-            // Text color to White
-            navLinks.forEach(link => link.style.setProperty('color', '#ffffff', 'important'));
-        }
-    } else {
-        // AT THE VERY TOP: Fully Transparent for both modes
-        navbar.classList.remove('scrolled');
-        navbar.style.background = "transparent";
-        navbar.style.backdropFilter = "none";
-        navbar.style.borderBottom = "none";
-        navbar.style.boxShadow = "none";
-        
-        // Reset to original CSS colors
-        navLinks.forEach(link => link.style.color = ""); 
-    }
-}
-
-// Ensure it runs on scroll and on theme switch
-window.addEventListener('scroll', updateHeader);
-document.getElementById('checkbox').addEventListener('change', updateHeader);
-       
     // Theme Switcher Logic
     const toggleSwitch = document.querySelector('#checkbox');
     const savedTheme = localStorage.getItem('theme') || 'dark';
