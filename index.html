@@ -209,43 +209,13 @@ html {
     scroll-behavior: smooth;
 }
 
-/* --- THE SCROLLED LOGIC --- */
-
-/* 1. LIGHT MODE SCROLLED: SOLID DARK BLUE */
-/* Triggers when checkbox is NOT checked (Light Mode) and user scrolls */
-#checkbox:not(:checked) ~ .app-container nav.scrolled {
-    background-color: #001f3f !important; /* Solid Navy Blue */
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    border-bottom: 2px solid #0ea5e9; /* Signature blue accent line */
-    padding: 10px 5% !important; /* Slight shrink for pro look */
+        nav {
+    transition: background-color 0.4s ease, border 0.4s ease, padding 0.3s ease !important;
 }
 
-/* Force text to stay WHITE in Light Mode Scrolled */
-#checkbox:not(:checked) ~ .app-container nav.scrolled .logo-text,
-#checkbox:not(:checked) ~ .app-container nav.scrolled ul li a {
-    color: #ffffff !important;
-}
-
-/* 2. DARK MODE SCROLLED: TRANSPARENT GLASS */
-/* Triggers when checkbox IS checked (Dark Mode) and user scrolls */
-#checkbox:checked ~ .app-container nav.scrolled {
-    background-color: rgba(10, 10, 15, 0.8) !important; /* Cyber Transparent */
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(14, 165, 233, 0.2);
-    padding: 10px 5% !important;
-}
-
-/* Ensure Logo 'CORE' stays blue in both modes */
-nav.scrolled .logo-text span {
+/* This ensures the 'CORE' part stays blue no matter what JS does */
+.logo-text span {
     color: #0ea5e9 !important;
-}
-
-/* --- TRANSITION SMOOTHING --- */
-nav {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
         
     </style>
@@ -575,15 +545,46 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
     window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
 });
 
-window.addEventListener('scroll', function() {
+function handleHeaderScroll() {
     const navbar = document.querySelector('nav');
-    // Triggers after 20px of scrolling
+    const navLinks = document.querySelectorAll('nav a, .logo-text');
+    const checkbox = document.getElementById('checkbox'); // Ensure your ID is 'checkbox'
+    
+    // Check if we are in Light Mode (checkbox not checked)
+    const isLightMode = !checkbox.checked;
+
     if (window.scrollY > 20) {
         navbar.classList.add('scrolled');
+        
+        if (isLightMode) {
+            // LIGHT MODE SCROLLED: Force Solid Dark Blue
+            navbar.style.backgroundColor = "#001f3f"; 
+            navbar.style.backdropFilter = "none";
+            navbar.style.borderBottom = "2px solid #0ea5e9";
+            // Force Text to White
+            navLinks.forEach(link => link.style.setProperty('color', '#ffffff', 'important'));
+        } else {
+            // DARK MODE SCROLLED: Force Transparent Glass
+            navbar.style.backgroundColor = "rgba(10, 10, 15, 0.8)";
+            navbar.style.backdropFilter = "blur(15px)";
+            navbar.style.borderBottom = "1px solid rgba(14, 165, 233, 0.2)";
+            // Force Text to White
+            navLinks.forEach(link => link.style.setProperty('color', '#ffffff', 'important'));
+        }
     } else {
+        // AT THE TOP: Back to Transparent
         navbar.classList.remove('scrolled');
+        navbar.style.backgroundColor = "transparent";
+        navbar.style.backdropFilter = "none";
+        navbar.style.borderBottom = "none";
+        // Reset colors to default
+        navLinks.forEach(link => link.style.color = "");
     }
-});
+}
+
+// Listen for scrolling AND for when the user clicks the light/dark switch
+window.addEventListener('scroll', handleHeaderScroll);
+document.getElementById('checkbox').addEventListener('change', handleHeaderScroll);
        
 </script>
 </body>
