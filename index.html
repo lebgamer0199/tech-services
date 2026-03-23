@@ -516,16 +516,6 @@ nav {
     </footer>
 
    <script>
-
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('nav');
-    // Triggers after 20px of scrolling
-    if (window.scrollY > 20) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
        
     // Theme Switcher Logic
     const toggleSwitch = document.querySelector('#checkbox');
@@ -584,6 +574,17 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
 
     window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
 });
+
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('nav');
+    // Triggers after 20px of scrolling
+    if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+       
 </script>
 </body>
 </html>
