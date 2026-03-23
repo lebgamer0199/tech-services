@@ -100,6 +100,30 @@ nav.scrolled {
         .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; align-items: center; }
         .badge-box { background: rgba(14, 165, 233, 0.1); padding: 30px; border-radius: 15px; border-left: 5px solid var(--accent); }
 
+/* Light Mode Scrolled Header */
+/* Assuming your light mode is triggered when the checkbox is NOT checked */
+#checkbox:not(:checked) ~ .app-container nav.scrolled {
+    background: rgba(255, 255, 255, 0.8); /* White glass */
+    border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Change Nav Link colors in Light Mode when scrolled */
+#checkbox:not(:checked) ~ .app-container nav.scrolled ul li a {
+    color: #1a1a1a !important; /* Dark text for readability */
+}
+
+/* Ensure the Logo text also turns dark in Light Mode */
+#checkbox:not(:checked) ~ .app-container nav.scrolled .logo-text {
+    color: #1a1a1a !important;
+}
+
+/* Keep the Support Portal button looking professional in Light Mode */
+#checkbox:not(:checked) ~ .app-container .nav-ticket-btn {
+    background: var(--accent);
+    color: white !important; /* Keep button text white for contrast */
+}
+        
         #guide { background: var(--tutorial-bg); max-width: 100%; padding: 100px 20px; border-radius: 0 0 50px 50px; }
         .steps-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 40px; }
         .step { flex: 1; min-width: 280px; padding: 40px; background: var(--section-bg); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--card-border); }
