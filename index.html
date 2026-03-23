@@ -208,6 +208,45 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* --- THE SCROLLED LOGIC --- */
+
+/* 1. LIGHT MODE SCROLLED: SOLID DARK BLUE */
+/* Triggers when checkbox is NOT checked (Light Mode) and user scrolls */
+#checkbox:not(:checked) ~ .app-container nav.scrolled {
+    background-color: #001f3f !important; /* Solid Navy Blue */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid #0ea5e9; /* Signature blue accent line */
+    padding: 10px 5% !important; /* Slight shrink for pro look */
+}
+
+/* Force text to stay WHITE in Light Mode Scrolled */
+#checkbox:not(:checked) ~ .app-container nav.scrolled .logo-text,
+#checkbox:not(:checked) ~ .app-container nav.scrolled ul li a {
+    color: #ffffff !important;
+}
+
+/* 2. DARK MODE SCROLLED: TRANSPARENT GLASS */
+/* Triggers when checkbox IS checked (Dark Mode) and user scrolls */
+#checkbox:checked ~ .app-container nav.scrolled {
+    background-color: rgba(10, 10, 15, 0.8) !important; /* Cyber Transparent */
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+    padding: 10px 5% !important;
+}
+
+/* Ensure Logo 'CORE' stays blue in both modes */
+nav.scrolled .logo-text span {
+    color: #0ea5e9 !important;
+}
+
+/* --- TRANSITION SMOOTHING --- */
+nav {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
         
     </style>
 </head>
@@ -477,6 +516,17 @@ html {
     </footer>
 
    <script>
+
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('nav');
+    // Triggers after 20px of scrolling
+    if (window.scrollY > 20) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+       
     // Theme Switcher Logic
     const toggleSwitch = document.querySelector('#checkbox');
     const savedTheme = localStorage.getItem('theme') || 'dark';
