@@ -248,7 +248,6 @@ nav.scrolled {
     border-bottom: 1px solid rgba(14, 165, 233, 0.2);
     padding: 10px 5% !important;
 }
-
 /* --- LIGHT MODE SCROLLED FIX --- */
 /* This targets the header ONLY when your light-mode body class or checkbox is active */
 body.light-mode nav.scrolled, 
@@ -267,6 +266,23 @@ body.light-mode nav.scrolled,
 /* Keep the 'CORE' part blue even in light mode */
 #checkbox:not(:checked) ~ * nav.scrolled .logo-text span {
     color: var(--accent) !important;
+}
+
+nav {
+    transition: background 0.3s ease, padding 0.3s ease, border 0.3s ease !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* Ensure the "CORE" span always stays Blue no matter what */
+.logo-text span {
+    color: var(--accent) !important;
+}
+
+/* Ensure the Support Button stays Blue with White text */
+.nav-ticket-btn {
+    background: var(--accent) !important;
+    color: white !important;
 }
         
     </style>
@@ -538,15 +554,38 @@ body.light-mode nav.scrolled,
 
    <script>
 
-window.addEventListener('scroll', function() {
+function updateHeader() {
     const navbar = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('nav ul li a, .logo-text');
+    const checkbox = document.getElementById('checkbox');
+    const isLightMode = !checkbox.checked; // Assuming checked = Dark, unchecked = Light
+
     if (window.scrollY > 20) {
         navbar.classList.add('scrolled');
-        console.log("Header is now scrolled"); // Check your browser console (F12) to see if this appears
+        
+        if (isLightMode) {
+            navbar.style.background = "rgba(255, 255, 255, 0.9)";
+            navbar.style.borderBottom = "1px solid #ddd";
+            // Force all text to Black
+            navLinks.forEach(link => link.style.setProperty('color', '#111111', 'important'));
+        } else {
+            navbar.style.background = "rgba(10, 10, 15, 0.85)";
+            navbar.style.borderBottom = "1px solid rgba(14, 165, 233, 0.2)";
+            // Force all text to White
+            navLinks.forEach(link => link.style.setProperty('color', '#ffffff', 'important'));
+        }
     } else {
         navbar.classList.remove('scrolled');
+        navbar.style.background = "transparent";
+        navbar.style.borderBottom = "none";
+        // Reset to default colors when at the very top
+        navLinks.forEach(link => link.style.color = ""); 
     }
-});
+}
+
+// Run on scroll and when clicking the theme switch
+window.addEventListener('scroll', updateHeader);
+document.getElementById('checkbox').addEventListener('change', updateHeader);
        
     // Theme Switcher Logic
     const toggleSwitch = document.querySelector('#checkbox');
