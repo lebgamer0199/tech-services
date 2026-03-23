@@ -545,46 +545,40 @@ document.getElementById('whatsappForm').addEventListener('submit', function(e) {
     window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
 });
 
-function handleHeaderScroll() {
+function syncHeader() {
     const navbar = document.querySelector('nav');
     const navLinks = document.querySelectorAll('nav a, .logo-text');
-    const checkbox = document.getElementById('checkbox'); // Ensure your ID is 'checkbox'
-    
-    // Check if we are in Light Mode (checkbox not checked)
+    const checkbox = document.getElementById('checkbox');
     const isLightMode = !checkbox.checked;
 
-    if (window.scrollY > 20) {
-        navbar.classList.add('scrolled');
-        
-        if (isLightMode) {
-            // LIGHT MODE SCROLLED: Force Solid Dark Blue
-            navbar.style.backgroundColor = "#001f3f"; 
-            navbar.style.backdropFilter = "none";
-            navbar.style.borderBottom = "2px solid #0ea5e9";
-            // Force Text to White
-            navLinks.forEach(link => link.style.setProperty('color', '#ffffff', 'important'));
-        } else {
-            // DARK MODE SCROLLED: Force Transparent Glass
+    // Logic: If in Light Mode, ALWAYS be Dark Blue (at top or scrolled)
+    // If in Dark Mode, be Transparent at top, Glass when scrolled
+    if (isLightMode) {
+        navbar.style.backgroundColor = "#001f3f"; 
+        navbar.style.borderBottom = "2px solid #0ea5e9";
+        navLinks.forEach(link => link.style.setProperty('color', '#ffffff', 'important'));
+    } else {
+        if (window.scrollY > 20) {
             navbar.style.backgroundColor = "rgba(10, 10, 15, 0.8)";
             navbar.style.backdropFilter = "blur(15px)";
             navbar.style.borderBottom = "1px solid rgba(14, 165, 233, 0.2)";
-            // Force Text to White
-            navLinks.forEach(link => link.style.setProperty('color', '#ffffff', 'important'));
+        } else {
+            navbar.style.backgroundColor = "transparent";
+            navbar.style.backdropFilter = "none";
+            navbar.style.borderBottom = "none";
         }
-    } else {
-        // AT THE TOP: Back to Transparent
-        navbar.classList.remove('scrolled');
-        navbar.style.backgroundColor = "transparent";
-        navbar.style.backdropFilter = "none";
-        navbar.style.borderBottom = "none";
-        // Reset colors to default
-        navLinks.forEach(link => link.style.color = "");
+        navLinks.forEach(link => link.style.color = ""); // Reset to CSS default
     }
 }
 
-// Listen for scrolling AND for when the user clicks the light/dark switch
-window.addEventListener('scroll', handleHeaderScroll);
-document.getElementById('checkbox').addEventListener('change', handleHeaderScroll);
+// 1. Run when scrolling
+window.addEventListener('scroll', syncHeader);
+
+// 2. Run when switching themes
+document.getElementById('checkbox').addEventListener('change', syncHeader);
+
+// 3. RUN IMMEDIATELY ON PAGE LOAD
+window.addEventListener('DOMContentLoaded', syncHeader);
        
 </script>
 </body>
